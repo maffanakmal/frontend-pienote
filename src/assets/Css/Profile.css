@@ -1,0 +1,92 @@
+/* Jidan */
+.settings {
+    width: 90%;
+    padding: 60px;
+    background: #e9f5ff;
+    margin: 40px auto;
+    border: 2px solid #d0e7ff;
+    border-radius: 10px;
+}
+
+.settings h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 40px;
+    text-align: left;
+    padding-left: 13%;
+}
+
+.settings .settings-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.settings .card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.settings .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.settings .card i {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.settings .card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.settings .card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Murti */
+.profile-container {
+    position: relative;
+}
+
+.profile-back {
+    position: absolute;
+    left: 0; /* Move the object to the left side */
+    top: 5%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for exact vertical centering */
+    padding: 20px;
+}
+
+.profile-back i {
+    font-size: 30px;
+}
+
+.profile-card {
+    background-color: var(--primary-color);
+    height: 500px;
+}
+
+/* .profile-card .profile-image img {
+    position: absolute;
+    transform: translate(50%, 50-);
+} */
+
+.profile-card .profile-image img {
+    width: 100px;
+    border-radius: 100px;
+    margin-top: -100px;
+    border: 2px solid white;
+}
+
+.profile-card .profile-info {
+    color: white;
+}

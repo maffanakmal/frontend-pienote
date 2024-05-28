@@ -1,0 +1,100 @@
+:root {
+    --primary-color: #3D8BFD;
+    --primary-light: #6aa5ff;
+    --primary-dark: #2c67c0;
+    --white-color: #fff;
+    --white-dark: #bdbdbd;
+    --secondary-color: #dc3545;
+    --color-text: #231942;
+    --navbar-color: #ffffff;
+    --navbar-color-text: #000000;
+    --btn-transition: .2s all ease;
+    --nav-transition: .2s all ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+    .home-page .box-header img {
+        width: 400px;
+        display: block;
+        margin-inline: block;
+    }
+
+    .partner .partner-card img {
+        width: 400px;
+        display: block;
+        margin-inline: block;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .home-page .box-header h1 {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .home-page .box-header h1 {
+        font-size: 2.4rem;
+    }
+
+    .home-page .box-header p {
+        font-size: 14px;
+    }
+
+    .home-page .box-header img {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .home-page .box-header h1 {
+        font-size: 2rem;
+    }
+
+    .home-page .box-header p {
+        font-size: 12px;
+    }
+
+    .home-page .box-header img {
+        width: 200px;
+    }
+}

@@ -1,0 +1,114 @@
+.hero-wrapper {
+    background-color: var(--primary-color);
+    width: 100%;
+}
+
+.feature .feature-card {
+    width: 500px;
+    height: 600px;
+    margin: 10px;
+}
+
+.about-container {
+    background-color: var(--primary-color);
+}
+
+
+.hero-wrapper .btn-readmore {
+    padding: 10px 20px;
+    border: none;
+    color: var(--primary-color);
+    background-color: white;
+    transition: var(--btn-transition);
+}
+
+.hero-wrapper .btn-readmore:hover {
+    color: white;
+    background-color: var(--primary-dark);
+    transform: translateX(10%);
+}
+
+/* Swiper */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Testimonial */
+.testimonials .star {
+    color: gold;
+}
+
+.testimonial-profile img {
+    width: 80px;
+    border-radius: 100px;
+}
+
+/* Faq */
+.faq-wrapper {
+    background-color: var(--primary-color);
+}
+
+.faq-wrapper .btn-faq {
+    padding: 10px 20px;
+    border: none;
+    color: var(--primary-color);
+    background-color: white;
+    transition: var(--btn-transition);
+}
+
+.faq-wrapper .btn-faq:hover {
+    background-color: var(--primary-dark);
+    color: white;
+}
+
+.modal-dialog .modal-content {
+    padding: 20px;
+    background-color: var(--primary-color);
+}
+
+.modal-content .btn-modal {
+    border: none;
+    padding: 5px 30px;
+    border-radius: 100px;
+}
+
+.modal-content .btn-modal:nth-child(2) {
+    background-color: var(--primary-light);
+}
+
+.modal-content .btn-modal:nth-child(2):hover {
+    background-color: var(--primary-dark);
+}
+
+.modal-content .btn-modal:nth-child(4) {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.modal-content .btn-modal:nth-child(4):hover {
+    background-color: var(--primary-light);
+    color: white;
+}
+
+.modal-dialog .modal-header {
+    border-bottom: none;
+}

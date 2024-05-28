@@ -1,0 +1,106 @@
+#navbar {
+    position: fixed;
+    padding: 10px 0;
+    width: 100%;
+    transition: .3s all ease-in-out;
+    background-color: var(--primary-color);
+    z-index: 9999;
+}
+
+#navbar.nav-active {
+    background-color: var(--primary-color);
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(59, 19, 19, 0.1);
+}
+
+#navbar .nav-link a {
+    padding: 5px 10px 5px 10px;
+    font-weight: 500;
+    color: var(--navbar-color);
+}
+
+#navbar .nav-link a:hover {
+    color: var(--color-text);
+}
+
+#navbar .nav-link .active {
+    color: var(--navbar-color);
+    border-bottom: 2px solid white;
+    transition: var(--btn-transition);
+}
+
+#navbar .btn-nav-login {
+    padding: 10px 20px;
+    background-color: white;
+    margin-right: 10px;
+    color: var(--primary-color);
+    border-radius: 5px;
+    transition: var(--btn-transition);
+}
+
+#navbar .btn-nav-login:hover {
+    color: white;
+    background-color: var(--primary-light);
+}
+
+#navbar .btn-nav-register {
+    padding: 10px 20px;
+    background-color: var(--primary-light);
+    color: white;
+    border-radius: 5px;
+    transition: var(--btn-transition);
+}
+
+#navbar .btn-nav-register:hover {
+    color: white;
+    background-color: var(--primary-dark);
+}
+
+#navbar .nav-dropdown {
+    background-color: transparent;
+    border: none;
+    
+}
+
+#navbar .nav-dropdown img {
+    width: 40px;
+    border-radius: 100px;
+    margin-right: 5px;
+}
+
+/* Footer */
+footer {
+    padding-top: 100px;
+    background-color: var(--primary-color);
+}
+
+.footer-top {
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+footer li,
+footer p,
+footer a {
+    color: white;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, .2);
+    border-radius: 100px;
+}
+
+.social-icons a:hover {
+    background-color: var(--c-brand);
+    color: white;
+}
