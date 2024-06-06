@@ -8,8 +8,8 @@ const LandingPageChoose = () => {
         <>
             <Container>
                 <Row>
-                    <Col className="text-center">
-                        <h1>Why Choose Us</h1>
+                    <Col className="text-center mb-4">
+                        <h1 className='mb-3'>Why Choose Us</h1>
                         <p>
                             “Our finance management website ensures meticulous and efficient
                             financial record-keeping, providing clarity and control over
@@ -20,7 +20,7 @@ const LandingPageChoose = () => {
                 <Row className="text-center d-flex justify-content-center align-items-center">
                     {whyChoose.map((choose) => {
                         return (
-                            <Col key={choose.id} className="choose-card mx-3">
+                            <Col md='3' key={choose.id} className="choose-card mx-3">
                                 <div className="choose p-lg-5 p-4">
                                     <img src={choose.image} className="mb-3" alt="" />
                                     <h4>{choose.title}</h4>

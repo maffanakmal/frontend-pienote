@@ -2,7 +2,7 @@ import '../assets/Css/NavBar-Footer.css'
 import React, {useState} from 'react';
 import {Container, Row, Col, NavLink} from 'react-bootstrap'
 import footerImg from "../assets/Image/pienotes-logomark-w.png"
-import LoginModal from '../Components/LoginModal';
+import LoginModal from './LoginModal';
 
 const Footer = () => {
     const [show, setShow] = useState(false);

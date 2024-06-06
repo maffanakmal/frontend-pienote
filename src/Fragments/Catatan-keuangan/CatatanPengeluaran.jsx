@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import DataTable from 'react-data-table-component';
 import { columns, data as tableData } from '../../assets/Js/catatan-keuangan'; // Renamed to tableData
 import { Button } from 'react-bootstrap'
+import CatatanPengeluaranModal from '../../Components/CatatanPengeluaranModal';
 import { 
     Chart as ChartJs,
     LineElement,
@@ -74,6 +75,8 @@ const CatatanPemasukan = () => {
         maintainAspectRatio: false, // Allow the chart to resize without maintaining the aspect ratio
     };
 
+    const [show, setShow] = useState(false);
+
     return (
         <>
             <div className='rounded-3 mb-3'>
@@ -100,9 +103,12 @@ const CatatanPemasukan = () => {
                     />
                 </div>
                 <div>
-                    <Button className=''>Buat Catatan Baru</Button>
+                    <Button className="" onClick={() => setShow(true)}>
+                        Buat catatan baru
+                    </Button>
                 </div>
             </div>
+            <CatatanPengeluaranModal show={show} setShow={setShow} />
         </>
     );
 }

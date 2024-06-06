@@ -1,4 +1,5 @@
 import React from "react";
+import '../assets/Css/Profile.css'
 import profileImg from "../assets/Image/people-1.webp"
 import { NavLink } from "react-router-dom";
 

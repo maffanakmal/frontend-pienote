@@ -1,4 +1,5 @@
 import React from 'react'
+import '../assets/Css/Profile.css'
 import { Container } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 

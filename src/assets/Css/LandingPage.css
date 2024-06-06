@@ -67,7 +67,7 @@
     background-color: var(--primary-color);
 }
 
-.faq-wrapper .btn-faq {
+.carousel .btn-faq {
     padding: 10px 20px;
     border: none;
     color: var(--primary-color);
@@ -75,7 +75,7 @@
     transition: var(--btn-transition);
 }
 
-.faq-wrapper .btn-faq:hover {
+.carousel .btn-faq:hover {
     background-color: var(--primary-dark);
     color: white;
 }

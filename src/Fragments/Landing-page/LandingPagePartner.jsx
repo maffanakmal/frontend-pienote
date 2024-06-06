@@ -7,8 +7,8 @@ const LandingPagePartner = () => {
         <>
             <Container>
                 <Row>
-                    <Col className="text-center">
-                        <h1>Our Partner</h1>
+                    <Col className="text-center mb-4">
+                        <h1 className='mb-3'>Our Partner</h1>
                         <p>
                             Collaborating with Industry Leaders for Comprehensive Solutions
                         </p>
@@ -17,7 +17,7 @@ const LandingPagePartner = () => {
                 <Row className="text-center d-flex justify-content-center align-items-center">
                     {ourPartner.map((partner) => {
                         return (
-                            <Col key={partner.id} className="partner-card mx-3">
+                            <Col md='4' key={partner.id} className="partner-card mx-3">
                                 <div className="partner p-lg-5 p-4">
                                     <img src={partner.image} className="mb-3" alt="" />
                                 </div>
