@@ -1,13 +1,14 @@
 import React from "react";
 import profileImg from "../assets/Image/people-1.webp"
 import { NavLink } from "react-router-dom";
+import '../assets/Css/Profile.css';
 
 const Profile = () => {
     return (
         <>
             <div className='profile-container min-vh-100 d-flex justify-content-center align-items-center'>
                 <div className="profile-back">
-                    <NavLink to="/profileSetting"><i class="fa-solid fa-arrow-left"></i></NavLink>
+                    <NavLink to="/profileSetting"><i className="fa-solid fa-arrow-left"></i></NavLink>
                 </div>
             <div className="profile-card row rounded-4 p-3 area-box border m-4">
                 <div className="profile-image d-flex justify-content-center align-items-center">
