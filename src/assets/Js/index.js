@@ -31,8 +31,8 @@ export const navLinks = [
   },
   {
     id: 2,
-    path: "feature",
-    text: "Feature",
+    path: "news",
+    text: "News",
   },
   {
     id: 3,
@@ -41,11 +41,6 @@ export const navLinks = [
   },
   {
     id: 4,
-    path: "testimonial",
-    text: "Testimonial",
-  },
-  {
-    id: 5,
     path: "contact",
     text: "Contact",
   },

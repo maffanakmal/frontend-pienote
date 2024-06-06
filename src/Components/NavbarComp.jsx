@@ -1,3 +1,4 @@
+import '../assets/Css/NavBar-Footer.css'
 import { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, Dropdown } from 'react-bootstrap';
 import { NavLink, useLocation } from 'react-router-dom';

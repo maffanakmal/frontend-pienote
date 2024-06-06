@@ -1,30 +1,46 @@
+import '../assets/Css/NavBar-Footer.css'
 import { useState, useEffect } from 'react'
 import { Navbar, Container, Nav, Dropdown } from 'react-bootstrap'
-import { navLinks } from '../assets/index'
-import { NavLink } from 'react-router-dom'
+import { navLinks } from '../assets/Js/index'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { Link } from 'react-scroll'
-import navLogo from '../assets/img/pienotes-logomark-w.png'
-import profileImg from '../assets/img/testimonial/people-1.webp'
+import axios from 'axios'
+import navLogo from '../assets/Image/pienotes-logomark-w.png'
+import profileImg from '../assets/Image/people-1.webp'
 
 const ProfileNavbarComp = () => {
-    const [changeColor, setChangeColor] = useState(false)
+    const [changeColor, setChangeColor] = useState(false);
+
     const changeBackgroundColor = () => {
         if (window.scrollY > 10) {
-            setChangeColor(true)
+            setChangeColor(true);
         } else {
-            setChangeColor(false)
+            setChangeColor(false);
         }
     }
 
     useEffect(() => {
-        window.addEventListener('scroll', changeBackgroundColor)
+        window.addEventListener('scroll', changeBackgroundColor);
         return () => {
-            window.removeEventListener('scroll', changeBackgroundColor)
+            window.removeEventListener('scroll', changeBackgroundColor);
         }
-    }, [])
+    }, []);
+
+    const navigate = useNavigate();
+
+    const logout = async () => {
+        try {
+            await axios.delete('http://localhost:8000/logout');
+            // Clear token or any auth state if needed
+            localStorage.removeItem('token'); // Example if using localStorage
+            navigate('/');
+        } catch (err) {
+            console.error('Logout error:', err);
+        }
+    }
 
     return (
-        <Navbar expand="lg" className={changeColor ? "nav-active" : ""}>
+        <Navbar id='navbar' expand="lg" className={changeColor ? "nav-active" : ""}>
             <Container>
                 <Navbar.Brand href="#home" className='fs-3 fw-bold'>
                     <NavLink to='/'><img src={navLogo} alt="PieNote" width='36px' /></NavLink>
@@ -47,21 +63,24 @@ const ProfileNavbarComp = () => {
                             </div>
                         ))}
                     </Nav>
+                    <div className='notification-icon d-flex aiign-items-center justify-content-center mx-3'>
+                        <NavLink><i class="fa-solid fa-bell"></i></NavLink>
+                    </div>
                     <Dropdown>
                         <Dropdown.Toggle className='nav-dropdown'>
                             <img src={profileImg} alt=""/>
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1"><i class="fa-solid fa-id-card"></i> See Profile</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2"><i class="fa-solid fa-gear"></i> Settings</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</Dropdown.Item>
+                            <Dropdown.Item href="#/action-1"><i className="fa-solid fa-id-card"></i> See Profile</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2"><i className="fa-solid fa-gear"></i> Settings</Dropdown.Item>
+                            <Dropdown.Item onClick={logout}><i className="fa-solid fa-arrow-right-from-bracket"></i> Logout</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-    )
+    );
 }
 
-export default ProfileNavbarComp
+export default ProfileNavbarComp;

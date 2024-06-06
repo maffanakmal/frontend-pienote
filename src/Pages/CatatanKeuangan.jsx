@@ -5,7 +5,7 @@ import CatatanPemasukan from '../Fragments/Catatan-keuangan/CatatanPemasukan'
 import CatatanPengeluaran from '../Fragments/Catatan-keuangan/CatatanPengeluaran'
 import LaporanKeuangan from '../Fragments/Catatan-keuangan/LaporanKeuangan'
 import { catatanLinks } from '../assets/Js/catatan-keuangan'
-import NavbarComp from '../Components/NavbarComp'
+import ProfileNav from '../Components/ProfileNav'
 
 const CatatanKeuangan = () => {
     const { section } = useParams(); // Get the URL parameter
@@ -25,7 +25,7 @@ const CatatanKeuangan = () => {
 
     return (
         <>
-            <NavbarComp />
+            <ProfileNav />
             <div className='catatanKeuangan-container min-vh-100 d-flex flex-column justify-content-center align-items-center' id='pemasukan'>
                 <h2 className='mb-3'>Catatan Keuangan</h2>
                 <Row>

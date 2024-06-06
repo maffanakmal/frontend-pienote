@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { testimonials } from '../../assets/Js/index'
+import LoginModal from '../../Components/LoginModal';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,7 +13,7 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
 
-const LandingPageTestimonials = () => {
+const TestimonialsUser = () => {
     return (
         <>
             <Container>
@@ -72,11 +73,14 @@ const LandingPageTestimonials = () => {
                         })}
                     </Swiper>
                 </Row>
+                <Row className='mt-4'>
+                    <Col md='12' className='d-flex align-items-center justify-content-center'>
+                        <Button className='bn-lg'>Berikan Ulasan</Button>
+                    </Col>
+                </Row>
             </Container>
-            
-
         </>
     )
 }
 
-export default LandingPageTestimonials
+export default TestimonialsUser

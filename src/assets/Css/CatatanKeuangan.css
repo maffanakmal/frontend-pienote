@@ -10,14 +10,14 @@
     background-color: var(--primary-color);
     padding: 20px;
     width: 30%;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .catatanKeuangan-nav {
     padding: 10px;
     background-color: var(--primary-color);
     color: white;
-    border-radius: 10px;
+    border-radius: 50px;
 }
 
 .catatan-link {
@@ -38,7 +38,7 @@
 
 .catatanKeuangan-nav .catatan-link .active {
     background-color: white;
-    border-radius: 5px;
+    border-radius: 50px;
     color: var(--primary-color);
 }
 
@@ -50,12 +50,12 @@
 .info-siklus {
     background-color: var(--primary-color);
     width: 40%;
-    border-radius: 5px;
+    border-radius: 20px;
 } 
 
 .siklus-keuangan {
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .siklus-keuangan .btn-ubahsiklus {
@@ -68,7 +68,7 @@
 .card-keuangan {
     background-color: var(--primary-color);
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 20px;
     width: 70%;
     display: flex;
     align-items: center;

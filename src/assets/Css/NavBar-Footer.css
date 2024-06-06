@@ -56,6 +56,11 @@
     background-color: var(--primary-dark);
 }
 
+#navbar .notification-icon i{
+    font-size: 1.3rem;
+    color: white;
+}
+
 #navbar .nav-dropdown {
     background-color: transparent;
     border: none;

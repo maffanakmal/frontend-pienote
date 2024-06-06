@@ -13,7 +13,7 @@ const CatatanKeuangModal = ({ show, setShow }) => {
                 aria-labelledby="login-modal"
             >
                 <Modal.Header>
-                    <Modal.Title className='text-white'>Catatan Pemasukan</Modal.Title>
+                    <Modal.Title className='text-white'>Catatan Pengeluaran</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>

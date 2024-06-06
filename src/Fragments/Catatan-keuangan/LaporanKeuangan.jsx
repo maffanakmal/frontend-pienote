@@ -4,20 +4,14 @@ import { columns, data as tableData } from '../../assets/Js/catatan-keuangan'; /
 import { Row, Col, Button } from 'react-bootstrap'
 import {
     Chart as ChartJs,
-    LineElement,
-    PointElement,
-    CategoryScale,
-    LinearScale,
+    ArcElement,
     Legend,
     Tooltip,
 } from 'chart.js'
-import { Line } from 'react-chartjs-2'
+import { Doughnut } from 'react-chartjs-2'
 
 ChartJs.register(
-    LineElement,
-    PointElement,
-    CategoryScale,
-    LinearScale,
+    ArcElement,
     Legend,
     Tooltip,
 )
@@ -58,14 +52,12 @@ const customStyles = {
 
 const CatatanPemasukan = () => {
     const chartData = { // Renamed to chartData
-        labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
+        labels: ['Gaji', 'Top-up E-wallet', 'Top-up Bank', 'Transfer'],
         datasets: [{
-            label: 'My First dataset',
-            data: [65, 59, 80, 81, 56, 55, 40],
-            fill: false,
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgba(255, 99, 132, 0.2)',
-            tension: 0.4
+            label: 'Laporan Keuangan',
+            data: [65, 59, 80, 81],
+            backgroundColor: ['green', 'cyan', 'blue', 'magenta'],
+            borderColor: ['green', 'cyan', 'blue', 'magenta'],
         }]
     }
 
@@ -120,7 +112,7 @@ const CatatanPemasukan = () => {
             </div>
             <div className="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column right-side">
                 <div className="chart-info mb-3">
-                    <Line
+                    <Doughnut
                         data={chartData} // Corrected reference to chartData
                         options={options} // Corrected reference to options
                     />

@@ -2,6 +2,7 @@ import {useState} from 'react';
 import DataTable from 'react-data-table-component';
 import { columns, data as tableData } from '../../assets/Js/catatan-keuangan'; // Renamed to tableData
 import { Button } from 'react-bootstrap'
+import CatatanPemasukanModal from '../../Components/CatatanPemasukanModal';
 import { 
     Chart as ChartJs,
     LineElement,
@@ -12,7 +13,6 @@ import {
     Tooltip,
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
-import CatatanPemasukanModal from '../../Components/CatatanPemasukanModal';
 
 ChartJs.register(
     LineElement,
