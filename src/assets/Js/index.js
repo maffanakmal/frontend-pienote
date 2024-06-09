@@ -22,6 +22,11 @@ import People3 from "../Image/people-3.webp";
 import People4 from "../Image/people-4.webp";
 import People5 from "../Image/people-5.webp";
 
+import article1 from '../Image/Article-1.png'
+import article2 from '../Image/Article-2.png'
+import article3 from '../Image/Article-3.png'
+import article4 from '../Image/Article-4.png'
+
 
 export const navLinks = [
   {
@@ -71,6 +76,7 @@ export const ourFeature = [
   {
     id: 1,
     image: featureImg1,
+    path: '/catatantabungan',
     title: "Catatan Tabungan",
     desc: "Dengan fitur Catatan tabungan, Anda dapat dengan cepat melacak perkembangan keuangan Anda, menetapkan tujuan tabungan yang realistis, dan mengelola dana Anda secara efisien.",
   },
@@ -78,18 +84,21 @@ export const ourFeature = [
     id: 2,
     image: featureImg2,
     title: "Catatan Keaungan",
+    path: '/catatankeuangan/pemasukan',
     desc: "Dengan fitur catatan keuangan kami yang intuitif, Anda dapat melacak setiap transaksi dengan mudah. Bergabunglah dengan kami sekarang dan mulailah mengambil kendali atas keuangan Anda!",
   },
   {
     id: 3,
     image: featureImg3,
     title: "Berbagi Tagihan",
+    path: '/berbagitagihan',
     desc: "Kami menyediakan solusi praktis untuk memudahkan pembagian biaya di antara teman, keluarga, atau rekan kerja. Dengan hanya beberapa klik, Anda dapat membagi tagihan secara adil dan transparan, menghemat waktu dan menghindari kebingungan.",
   },
   {
     id: 4,
     image: featureImg4,
     title: "Artikel Keaungan",
+    path: '/article',
     desc: "Temukan tips, trik, dan strategi untuk mengelola uang Anda dengan lebih efektif, merencanakan investasi yang cerdas, dan mencapai tujuan keuangan Anda. Mulai jelajahi dunia keuangan yang menyenangkan dan bermanfaat dengan bergabung bersama kami sekarang!",
   },
 ];
@@ -130,57 +139,6 @@ export const ourPartner = [
     image: partnerImg4,
   },
 ]
-
-export const faq = [
-  {
-    id: 1,
-    eventKey: 0,
-    title: "Apakah ini Berlangganan?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estlaborum.",
-  },
-  {
-    id: 2,
-    eventKey: 1,
-    title: "Bagaimana Sistem Belajarnya?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estlaborum.",
-  },
-  {
-    id: 3,
-    eventKey: 2,
-    title: "Apakah Boleh di Share ke Orang Lain?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estlaborum.",
-  },
-  {
-    id: 4,
-    eventKey: 3,
-    title: "Apakah Ada Grup Diskusi?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estlaborum.",
-  },
-  {
-    id: 5,
-    eventKey: 4,
-    title: "Apakah dapat di Akses Selamanya?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estlaborum.",
-  },
-  {
-    id: 6,
-    eventKey: 5,
-    title: "Apakah ada Mentornya?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estlaborum.",
-  },
-  {
-    id: 7,
-    eventKey: 6,
-    title: "Apakah Saya Boleh Mendownload Videonya?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estlaborum.",
-  },
-  {
-    id: 8,
-    eventKey: 7,
-    title: "Apakah boleh ganti Kelas ketika sudah Membeli?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estlaborum.",
-  },
-];
 
 
 export const testimonials = [
@@ -240,3 +198,55 @@ export const testimonials = [
     name: "Selena Gomez",
   },
 ];
+
+export const news = [
+  {
+    id: 1,
+    path: '/article/Bagaimana cara menabung untuk keperluan sendiri dengan baik?',
+    image: article1,
+    title: "Bagaimana cara menabung untuk keperluan sendiri dengan baik?",
+    desc: "Memang apa pentingnya menabung? Memiliki tabungan adalah hal yang penting karena kamu akan memiliki dana cadangan untuk hal-hal yang diluar kendalimu.",
+  },
+  {
+    id: 2,
+    path: '/article/Apa pentingnya tabungan di masa tua ?',
+    image: article2,
+    title: "Apa pentingnya tabungan di masa tua ?",
+    desc: "Ada banyak sekali manfaat yang bisa Anda dapatkan dengan memiliki tabungan hari tua. Bukan hanya sekedar mempersiapkan masa tua saja, namun juga bisa membuat hidup Anda lebih nyaman dan aman di masa tua nanti.",
+  },
+  {
+    id: 3,
+    path: '/article/Trik menabung bersama teman!',
+    image: article3,
+    title: "Trik menabung bersama teman!",
+    desc: "Melakukan banyak kegiatan bareng teman bisa mempererat tali pertemanan. Supaya bisa sering ngadain acara bareng, kamu dan teman bisa mulai menabung bareng.",
+  },
+  {
+    id: 4,
+    path: '/article/Tips menabung bersama pasangan dengan baik?',
+    image: article4,
+    title: "Tips menabung bersama pasangan dengan baik?",
+    desc: "Tips menabung untuk pasangan muda sangat penting untuk diketahui, dari perbaikan rumah hingga liburan, membuka rekening tabungan bersama dapat membantu Anda menghemat uang dan mencapai tujuan bersama.",
+  },
+];
+
+export const articleCard = [
+  {
+    id: 1,
+    path: '/article/Bagaimana cara menabung untuk keperluan sendiri dengan baik ?',
+    image: article1,
+    title: "Bagaimana cara menabung untuk keperluan sendiri dengan baik ?",
+  },
+  {
+    id: 2,
+    path: '/article/Apa pentingnya tabungan di masa tua ?',
+    image: article2,
+    title: "Apa pentingnya tabungan di masa tua ?",
+  },
+  {
+    id: 3,
+    path: '/article/Trik menabung bersama teman!',
+    image: article3,
+    title: "Trik menabung bersama teman!",
+  },
+]

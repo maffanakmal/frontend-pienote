@@ -1,5 +1,5 @@
 .catatanKeuangan-container {
-    padding: 100px;
+    padding-top: 100px;
 }
 
 .info-catatanKeuangan {
@@ -10,14 +10,14 @@
     background-color: var(--primary-color);
     padding: 20px;
     width: 30%;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .catatanKeuangan-nav {
     padding: 10px;
     background-color: var(--primary-color);
     color: white;
-    border-radius: 50px;
+    border-radius: 80px;
 }
 
 .catatan-link {

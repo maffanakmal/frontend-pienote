@@ -1,26 +1,26 @@
 import '../assets/Css/LandingPage.css';
-import NewsHero from '../Fragments/News-page/NewsHero';
-import NewsCard from '../Fragments/News-page/NewsCard'
+import NewsHeroUser from '../Fragments/News-page/NewsHeroUser';
+import NewsCardUser from '../Fragments/News-page/NewsCardUser'
 import LandingPageTestimonials from '../Fragments/Landing-page/LandingPageTestimonials';
-import NavbarComp from '../components/NavbarComp';
-import FooterComp from '../components/FooterComp';
+import FooterUserComp from '../components/FooterUserComp';
+import ProfileNavbarComp from '../components/ProfileNavbarComp';
 
-const News = () => {
+const UserNews = () => {
     return (
         <>
-            <NavbarComp/>
+            <ProfileNavbarComp/>
             <div id='home' className="w-100 min-vh-100 d-flex align-items-center justify-content-center">
-                <NewsHero />
+                <NewsHeroUser />
             </div>
             <div className="w-100 min-vh-100 d-flex align-items-center justify-content-center">
-                <NewsCard/>
+                <NewsCardUser/>
             </div>
             <div className="w-100 min-vh-100 d-flex align-items-center justify-content-center">
                 <LandingPageTestimonials/>
             </div>
-            <FooterComp />
+            <FooterUserComp />
         </>
     );
 };
 
-export default News;
+export default UserNews;

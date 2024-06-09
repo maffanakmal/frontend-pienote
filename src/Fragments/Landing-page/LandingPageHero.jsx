@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { Container, Row, Col, Carousel, Button } from 'react-bootstrap'
 import { heroSlide } from '../../assets/Js/index'
-import readmoreImg from "../../assets/Image/brainstorming-hero.png"
-import LoginModal from '../../Components/LoginModal';
 
 const LandingPageHero = () => {
-    const [show, setShow] = useState(false);
-    
     return (
         <>
             <Container className="hero-wrapper rounded-3 mx-3">
@@ -27,7 +23,6 @@ const LandingPageHero = () => {
                     })}
                 </Carousel>
             </Container>
-            <LoginModal show={show} setShow={setShow} />
         </>
     )
 }

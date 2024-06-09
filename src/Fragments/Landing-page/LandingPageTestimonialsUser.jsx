@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { testimonials } from '../../assets/Js/index'
-import LoginModal from '../../Components/LoginModal';
+import LoginModal from '../../components/LoginModal';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -75,7 +75,7 @@ const TestimonialsUser = () => {
                 </Row>
                 <Row className='mt-4'>
                     <Col md='12' className='d-flex align-items-center justify-content-center'>
-                        <Button className='bn-lg'>Berikan Ulasan</Button>
+                        <button className='btn-berikan-ulasan'>Berikan Ulasan</button>
                     </Col>
                 </Row>
             </Container>

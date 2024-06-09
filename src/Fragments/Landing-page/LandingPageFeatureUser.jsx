@@ -1,9 +1,11 @@
-import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import { ourFeature } from '../../assets/Js/index'
-
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { ourFeature } from '../../assets/Js/index';
+import { Link, useNavigate } from 'react-router-dom';
 
 const LandingPageFeature = () => {
+    const navigate = useNavigate();
+
     return (
         <>
             <Container className='feature'>
@@ -17,17 +19,21 @@ const LandingPageFeature = () => {
                     {ourFeature.map((feature) => {
                         return (
                             <Col
+                                key={feature.id}
                                 lg="6"
                                 sm="6"
-                                key={feature.id}
-                                className="feature-card border rounded-2"
+                                className="feature-card-user border rounded-2 mb-4"
                             >
-                                <div className="feature p-lg-5 p-4
-                                        
-                                    ">
-                                    <img src={feature.image} alt="" />
-                                    <h5 className="mt-4 mb-3">{feature.title}</h5>
-                                    <p>{feature.desc}</p>
+                                <div
+                                    onClick={() => navigate(feature.path)}
+                                    className="text-decoration-none feature-link"
+                                    style={{ cursor: 'pointer' }}
+                                >
+                                    <div className="feature p-lg-5 p-4">
+                                        <img src={feature.image} alt={feature.title} className="img-fluid rounded-2"/>
+                                        <h5 className="mt-4 mb-3">{feature.title}</h5>
+                                        <p>{feature.desc}</p>
+                                    </div>
                                 </div>
                             </Col>
                         );
@@ -35,7 +41,7 @@ const LandingPageFeature = () => {
                 </Row>
             </Container>
         </>
-    )
+    );
 }
 
-export default LandingPageFeature
+export default LandingPageFeature;

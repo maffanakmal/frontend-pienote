@@ -76,7 +76,7 @@ const RegisterForm = () => {
                             type="text"
                             name="full_name"
                             onChange={e => setValues({ ...values, full_name: e.target.value })}
-                            className="form-control fw-light"
+                            className="form-control fw-light rounded-2"
                             id="full_name"
                             placeholder='Enter your full name'
                             required
@@ -88,7 +88,7 @@ const RegisterForm = () => {
                             type="text"
                             name="username"
                             onChange={e => setValues({ ...values, username: e.target.value })}
-                            className="form-control fw-light"
+                            className="form-control fw-light rounded-2"
                             id="username"
                             placeholder='Enter your username'
                             required
@@ -100,7 +100,7 @@ const RegisterForm = () => {
                             type="email"
                             name="email"
                             onChange={e => setValues({ ...values, email: e.target.value })}
-                            className="form-control fw-light"
+                            className="form-control fw-light rounded-2"
                             id="email"
                             placeholder='Enter your email'
                             required
@@ -112,7 +112,7 @@ const RegisterForm = () => {
                             type="text"
                             name="phone_number"
                             onChange={e => setValues({ ...values, phone_number: e.target.value })}
-                            className="form-control fw-light"
+                            className="form-control fw-light rounded-2"
                             id="phone"
                             placeholder='Enter your phone number'
                             required
@@ -125,7 +125,7 @@ const RegisterForm = () => {
                                 type={showPassword ? 'text' : 'password'}
                                 name="password"
                                 onChange={e => setValues({ ...values, password: e.target.value })}
-                                className="form-control fw-light"
+                                className="form-control fw-light rounded-2"
                                 id="password"
                                 placeholder='Enter your password'
                                 required
@@ -146,7 +146,7 @@ const RegisterForm = () => {
                                 type={showConfirmPassword ? 'text' : 'password'}
                                 name="confirm_pass"
                                 onChange={e => setValues({ ...values, confirm_pass: e.target.value })}
-                                className="form-control fw-light"
+                                className="form-control fw-light rounded-2"
                                 id="confirm_pass"
                                 placeholder='Re-enter your password'
                                 required

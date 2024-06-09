@@ -7,9 +7,9 @@ import LandingPageAbout from '../Fragments/Landing-page/LandingPageAbout';
 import LandingPageChoose from '../Fragments/Landing-page/LandingPageChoose';
 import LandingPagePartner from '../Fragments/Landing-page/LandingPagePartner';
 import LandingPageTestimonials from '../Fragments/Landing-page/LandingPageTestimonials';
-import NavbarComp from '../Components/NavbarComp';
-import FooterUserComp from '../Components/FooterUserComp';
-import LoginModal from '../Components/LoginModal';
+import NavbarComp from '../components/NavbarComp';
+import FooterComp from '../components/FooterComp';
+import LoginModal from '../components/LoginModal';
 
 const Home = () => {
     const [show, setShow] = useState(false);
@@ -36,12 +36,12 @@ const Home = () => {
                 <LandingPageTestimonials />
                 <Row className='mt-4'>
                     <Col md='12'>
-                        <Button onClick={() => setShow(true)} className='bn-lg'>Berikan Ulasan</Button>
+                        <button onClick={() => setShow(true)} className='btn-berikan-ulasan'>Berikan Ulasan</button>
                     </Col>
                 </Row>
                 <LoginModal show={show} setShow={setShow} />
             </div>
-            <FooterUserComp />
+            <FooterComp />
         </>
     );
 };

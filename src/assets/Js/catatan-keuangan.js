@@ -31,7 +31,7 @@ export const columns = [
     },
 ];
 
-export const data = [
+export const dataTabel = [
     {
         id: 1,
         date: '2023-05-24',

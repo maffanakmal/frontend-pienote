@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
-import { columns, data as tableData } from '../../assets/Js/catatan-keuangan'; // Renamed to tableData
-import { Button } from 'react-bootstrap'
-import CatatanPengeluaranModal from '../../Components/CatatanPengeluaranModal';
-import { 
+import { Button, Table } from 'react-bootstrap';
+import CatatanPengeluaranModal from '../../components/CatatanPengeluaranModal';
+import {
     Chart as ChartJs,
     LineElement,
     PointElement,
@@ -11,8 +10,9 @@ import {
     LinearScale,
     Legend,
     Tooltip,
-} from 'chart.js'
-import { Line } from 'react-chartjs-2'
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+import axios from 'axios';
 
 ChartJs.register(
     LineElement,
@@ -21,8 +21,9 @@ ChartJs.register(
     LinearScale,
     Legend,
     Tooltip,
-)
+);
 
+// Styling Table
 const customStyles = {
     table: {
         style: {
@@ -30,15 +31,10 @@ const customStyles = {
         },
     },
     headRow: {
-        style: {
-            
-        },
+        style: {},
     },
     rows: {
-        style: {
-            
-        },
-    
+        style: {},
     },
     headCells: {
         style: {
@@ -57,8 +53,10 @@ const customStyles = {
     },
 };
 
-const CatatanPemasukan = () => {
-    const chartData = { // Renamed to chartData
+const CatatanPengeluaran= () => {
+
+    // Chart dataset
+    const chartData = {
         labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
         datasets: [{
             label: 'My First dataset',
@@ -68,7 +66,7 @@ const CatatanPemasukan = () => {
             borderColor: 'rgba(255, 99, 132, 0.2)',
             tension: 0.4
         }]
-    }
+    };
 
     const options = {
         responsive: true,
@@ -76,23 +74,94 @@ const CatatanPemasukan = () => {
     };
 
     const [show, setShow] = useState(false);
+    const [data, setData] = useState([]);
+    const [totalAmount, setTotalAmount] = useState(0);
+
+    const fetchPengeluaran = async (setData, setTotalAmount) => {
+        try {
+            const response = await axios.get('http://localhost:8000/catatankeuangan/pengeluaran', {
+                withCredentials: true
+            });
+            setData(response.data.pengeluaran);
+
+            const total = response.data.pengeluaran.reduce((acc, curr) => acc + parseFloat(curr.amount), 0);
+            setTotalAmount(total.toFixed(2));
+        } catch (error) {
+            console.error('Error fetching pengeluaran data:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchPengeluaran(setData, setTotalAmount); // Pass setData and setTotalAmount here
+    }, []);
+
+    const columns = [
+        {
+            name: 'ID',
+            selector: 'user_id',
+            sortable: true,
+        },
+        {
+            name: 'Amount',
+            selector: 'amount',
+            sortable: true,
+        },
+        {
+            name: 'Income Category',
+            selector: 'income_category',
+            sortable: true,
+        },
+        {
+            name: 'Description',
+            selector: 'description',
+            sortable: true,
+        },
+        {
+            name: 'Date',
+            selector: 'date',
+            sortable: true,
+        },
+    ];
 
     return (
         <>
             <div className='rounded-3 mb-3'>
                 <div className='nominal-info mx-auto'>
-                    <h3 className='fw-bold text-white text-center'>Rp. 500.000</h3>
+                    <h3 className='fw-bold text-white text-center'>Rp. {totalAmount}</h3>
                 </div>
             </div>
             <h4 className='text-center'>Pengeluaran Terkini</h4>
             <div className="col-md-6 left-side">
                 <div className='row align-items-center p-4 rounded'>
-                    <DataTable
+                    {/* <DataTable
                         columns={columns}
-                        data={tableData} // Corrected reference to tableData
+                        data={data} // Corrected reference to tableData
                         pagination
                         customStyles={customStyles}
-                    />
+                    /> */}
+
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr className='text-center'>
+                                <th>Nominal</th>
+                                <th>Deskripsi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data && data.length > 0 && data.slice(0, 5).map((pengeluaran, index) => {
+                                return (
+                                    <tr key={index} className='text-center'>
+                                        <td>
+                                            <h5>{pengeluaran.amount}</h5>
+                                            <p>{pengeluaran.description}</p>
+                                        </td>
+                                        <td>{pengeluaran.date}</td>
+                                    </tr>
+                                )
+                            })}
+
+                        </tbody>
+                    </Table>
                 </div>
             </div>
             <div className="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column right-side">
@@ -103,7 +172,7 @@ const CatatanPemasukan = () => {
                     />
                 </div>
                 <div>
-                    <Button className="" onClick={() => setShow(true)}>
+                    <Button className="btn-buatcatatan w-auto" onClick={() => setShow(true)}>
                         Buat catatan baru
                     </Button>
                 </div>
@@ -113,4 +182,4 @@ const CatatanPemasukan = () => {
     );
 }
 
-export default CatatanPemasukan;
+export default CatatanPengeluaran;

@@ -1,11 +1,16 @@
 import '../assets/Css/NavBar-Footer.css'
 import React, {useState} from 'react';
 import {Container, Row, Col, NavLink} from 'react-bootstrap'
+import {useNavigate, useLocation} from 'react-router-dom'
 import footerImg from "../assets/Image/pienotes-logomark-w.png"
-import LoginModal from '../Components/LoginModal';
+import LoginModal from './LoginModal';
 
 const Footer = () => {
     const [show, setShow] = useState(false);
+    const navigate = useNavigate('');
+    const location = useLocation();
+
+    const isHomePage = location.pathname === '/';
 
     return (
         <footer>
@@ -24,27 +29,32 @@ const Footer = () => {
                         <Col lg='2' sm='6'>
                             <h5 className="mb-0 text-white">Home</h5>
                             <ul>
-                                <li><NavLink  onClick={() => setShow(true)}>Tabungan</NavLink></li>
-                                <li><NavLink  onClick={() => setShow(true)}>Catatan Keuangan</NavLink></li>
-                                <li><NavLink  onClick={() => setShow(true)}>Berbagi Tagihan</NavLink></li>
+                                <NavLink  onClick={() => setShow(true)}>Tabungan</NavLink>
+                                <NavLink  onClick={() => setShow(true)}>Catatan Keuangan</NavLink>
+                                <NavLink  onClick={() => setShow(true)}>Berbagi Tagihan</NavLink>
                             </ul>
                         </Col>
                         <Col lg='2' sm='6'>
                             <h5 className="mb-0 text-white">News</h5>
                             <ul>
-                                <li><NavLink>Artikel</NavLink></li>
+                                <NavLink onClick={() => navigate('/news')}>Artikel</NavLink>
                             </ul>
                         </Col>
                         <Col lg='2' sm='6'>
                             <h5 className="mb-0 text-white">About</h5>
                             <ul>
-                                <li><NavLink href="#about">Tentang Kami</NavLink></li>
+                                {/* Conditionally render the NavLink based on the current URL */}
+                                {isHomePage ? (
+                                    <NavLink href="#about">Tentang Kami</NavLink>
+                                ) : (
+                                    <NavLink onClick={() => navigate('/')}>Tentang Kami</NavLink>
+                                )}
                             </ul>
                         </Col>
                         <Col lg='2' sm='6'>
                             <h5 className="mb-0 text-white">Contact us</h5>
                             <ul>
-                                <li><NavLink onClick={() => setShow(true)}>Hubungi Kami</NavLink></li>
+                                <NavLink onClick={() => setShow(true)}>Hubungi Kami</NavLink>
 
                             </ul>
                         </Col>

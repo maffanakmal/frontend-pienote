@@ -1,11 +1,14 @@
 import '../assets/Css/NavBar-Footer.css'
-import React, {useState} from 'react';
+import React from 'react';
 import {Container, Row, Col, NavLink} from 'react-bootstrap'
 import footerImg from "../assets/Image/pienotes-logomark-w.png"
-import LoginModal from './LoginModal';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const Footer = () => {
-    const [show, setShow] = useState(false);
+const FooterUser = () => {
+    const navigate = useNavigate('');
+    const location = useLocation();
+
+    const isUserHomePage = location.pathname === '/home';
 
     return (
         <footer>
@@ -13,7 +16,7 @@ const Footer = () => {
                 <Container className="mx-auto">
                     <Row>
                         <Col lg='2' sm='6'>
-                            <NavLink href="#home"><img src={footerImg} alt="" width="100px" /></NavLink>
+                            <img src={footerImg} alt="" width="100px"/>
                             <div className="social-icons mt-3">
                                 <NavLink href="#"><i class="fa-brands fa-facebook"></i></NavLink>
                                 <NavLink href="#"><i class="fa-brands fa-instagram"></i></NavLink>
@@ -24,27 +27,31 @@ const Footer = () => {
                         <Col lg='2' sm='6'>
                             <h5 className="mb-0 text-white">Home</h5>
                             <ul>
-                                <li><NavLink  onClick={() => setShow(true)}>Tabungan</NavLink></li>
-                                <li><NavLink  onClick={() => setShow(true)}>Catatan Keuangan</NavLink></li>
-                                <li><NavLink  onClick={() => setShow(true)}>Berbagi Tagihan</NavLink></li>
+                                <NavLink onClick={() => navigate('/tabungan')}>Tabungan</NavLink>
+                                <NavLink  onClick={() => navigate('/catatankeuangan/pemasukan')}>Catatan Keuangan</NavLink>
+                                <NavLink onClick={() => navigate('/berbagitagihan')}>Berbagi Tagihan</NavLink>
                             </ul>
                         </Col>
                         <Col lg='2' sm='6'>
                             <h5 className="mb-0 text-white">News</h5>
                             <ul>
-                                <li><NavLink>Artikel</NavLink></li>
+                                <NavLink onClick={() => navigate('/article')}>Artikel</NavLink>
                             </ul>
                         </Col>
                         <Col lg='2' sm='6'>
                             <h5 className="mb-0 text-white">About</h5>
                             <ul>
-                                <li><NavLink href="#about">Tentang Kami</NavLink></li>
+                                {isUserHomePage ? (
+                                    <NavLink href="#about">Tentang Kami</NavLink>
+                                ) : (
+                                    <NavLink onClick={() => navigate('/home')}>Tentang Kami</NavLink>
+                                )}
                             </ul>
                         </Col>
                         <Col lg='2' sm='6'>
                             <h5 className="mb-0 text-white">Contact us</h5>
                             <ul>
-                                <li><NavLink onClick={() => setShow(true)}>Hubungi Kami</NavLink></li>
+                                <NavLink>Hubungi Kami</NavLink>
 
                             </ul>
                         </Col>
@@ -54,11 +61,10 @@ const Footer = () => {
                                 Persyaratan layanan | Kebijakan privasi</p>
                         </Col>
                     </Row>
-                    <LoginModal show={show} setShow={setShow} />
                 </Container>
             </div>
         </footer>
     );
 }
 
-export default Footer;
+export default FooterUser;

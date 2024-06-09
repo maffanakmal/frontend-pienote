@@ -1,11 +1,11 @@
-import '../assets/Css/CatatanKeuangan.css'
-import { useParams, Link, NavLink } from 'react-router-dom'; // Import NavLink instead of Link
-import { Row, Nav, Button } from 'react-bootstrap'
-import CatatanPemasukan from '../Fragments/Catatan-keuangan/CatatanPemasukan'
-import CatatanPengeluaran from '../Fragments/Catatan-keuangan/CatatanPengeluaran'
-import LaporanKeuangan from '../Fragments/Catatan-keuangan/LaporanKeuangan'
-import { catatanLinks } from '../assets/Js/catatan-keuangan'
-import ProfileNav from '../Components/ProfileNav'
+import '../assets/Css/CatatanKeuangan.css';
+import { useParams, NavLink } from 'react-router-dom'; // Import NavLink instead of Link
+import { Row, Nav } from 'react-bootstrap';
+import CatatanPemasukan from '../Fragments/Catatan-keuangan/CatatanPemasukan';
+import CatatanPengeluaran from '../Fragments/Catatan-keuangan/CatatanPengeluaran';
+import LaporanKeuangan from '../Fragments/Catatan-keuangan/LaporanKeuangan';
+import { catatanLinks } from '../assets/Js/catatan-keuangan';
+import ProfileNavbarComp from '../components/ProfileNavbarComp';
 
 const CatatanKeuangan = () => {
     const { section } = useParams(); // Get the URL parameter
@@ -25,8 +25,8 @@ const CatatanKeuangan = () => {
 
     return (
         <>
-            <ProfileNav />
-            <div className='catatanKeuangan-container min-vh-100 d-flex flex-column justify-content-center align-items-center' id='pemasukan'>
+            <ProfileNavbarComp />
+            <div className='catatanKeuangan-container w-100 min-vh-100 d-flex flex-column justify-content-center align-items-center' id='pemasukan'>
                 <h2 className='mb-3'>Catatan Keuangan</h2>
                 <Row>
                     <Nav className="catatanKeuangan-nav mb-3 d-flex justify-content-center align-items-center w-100">
@@ -34,7 +34,7 @@ const CatatanKeuangan = () => {
                             <div className='catatan-link' key={link.id}>
                                 <NavLink
                                     to={`/catatankeuangan/${link.path}`}
-                                    activeClassName="active" // Correct prop name
+                                    className={({ isActive }) => (isActive ? 'active' : '')}
                                 >
                                     {link.text}
                                 </NavLink>
@@ -47,7 +47,7 @@ const CatatanKeuangan = () => {
                 </Row>
             </div>
         </>
-    )
+    );
 }
 
 export default CatatanKeuangan;

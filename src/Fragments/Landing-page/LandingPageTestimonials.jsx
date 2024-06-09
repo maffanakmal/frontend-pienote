@@ -15,7 +15,7 @@ import { Pagination } from 'swiper/modules';
 const LandingPageTestimonials = () => {
     return (
         <>
-            <Container>
+            <Container className='testimonials'>
                 <Row>
                     <Col className="text-center">
                         <h1 className='mb-3'>What People Say</h1>

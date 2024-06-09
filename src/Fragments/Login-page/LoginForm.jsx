@@ -21,36 +21,41 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/login', values, { withCredentials: true })
-            .then(res => {
-                if (res.data.error) {
-                    setError(res.data.error);
-                    setShow(true);
-                    setTimeout(() => {
-                        setShow(false);
-                    }, 5000);
-                } else {
-                    setSuccess('Login Successful!');
-                    setShow(true);
-                    setTimeout(() => {
-                        setShow(false);
-                    }, 4000);
-                    setTimeout(() => {
-                        navigate('/home');
-                    }, 5000);
-                }
-            })
-            .catch(err => {
-                const errorMessage = err.response && err.response.data && err.response.data.error
-                    ? err.response.data.error
-                    : 'An unexpected error occurred';
-                setError(errorMessage);
-                setShow(true);
-                setTimeout(() => {
-                    setShow(false);
-                }, 5000);
-            });
-    };
+    axios.post('http://localhost:8000/login', values, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        withCredentials: true
+    })
+    .then(res => {
+        if (res.data.error) {
+            setError(res.data.error);
+            setShow(true);
+            setTimeout(() => {
+                setShow(false);
+            }, 5000);
+        } else {
+            setSuccess('Login Successful!');
+            setShow(true);
+            setTimeout(() => {
+                setShow(false);
+            }, 4000);
+            setTimeout(() => {
+                navigate('/home');
+            }, 5000);
+        }
+    })
+    .catch(err => {
+        const errorMessage = err.response && err.response.data && err.response.data.error
+            ? err.response.data.error
+            : err.message || 'An unexpected error occurred';
+        setError(errorMessage);
+        setShow(true);
+        setTimeout(() => {
+            setShow(false);
+        }, 5000);
+    });
+}
 
     return (
         <>
@@ -72,7 +77,7 @@ const LoginForm = () => {
                             type="text"
                             name="authIdentifier"
                             onChange={e => setValues({ ...values, authIdentifier: e.target.value })}
-                            className="form-control fw-light"
+                            className="form-control fw-light rounded-2"
                             id="authIdentifier"
                             placeholder='Enter your userename or email'
                             required
@@ -85,7 +90,7 @@ const LoginForm = () => {
                                 type={showPassword ? 'text' : 'password'}
                                 name="password"
                                 onChange={e => setValues({ ...values, password: e.target.value })}
-                                className="form-control fw-light"
+                                className="form-control fw-light rounded-2"
                                 id="password"
                                 placeholder='Enter your password'
                                 required
@@ -104,7 +109,7 @@ const LoginForm = () => {
                             <input type="checkbox" className="form-check-input" id="rememberMe" />
                             <label className="form-check-label" htmlFor="rememberMe">Remember Me</label>
                         </div>
-                        <NavLink to="">Forgot Password</NavLink>
+                        <NavLink to="/forgetpassword">Forgot Password</NavLink>
                     </div>
                     <div className="mb-3">
                         <button type="submit" className="btn-login w-100 fs-6">Login</button>

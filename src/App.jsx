@@ -1,28 +1,80 @@
-import { Routes, Route } from "react-router-dom";
-import Login from "./Pages/Login";
-import Register from "./Pages/Register";
-import Home from "./Pages/Home";
-import Profile from "./Pages/Profile";
-import ProfileSetting from "./Pages/ProfileSetting";
-import CatatanKeuangan from "./Pages/CatatanKeuangan"
-import UserHome from "./Pages/UserHome"
-import News from "./Pages/News"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Error from "./pages/Error";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import ProfileSetting from "./pages/ProfileSetting";
+import CatatanKeuangan from "./pages/CatatanKeuangan";
+import UserHome from "./pages/UserHome";
+import News from "./pages/News";
+import UserNews from "./pages/UserNews";
+import Article from "./pages/Article";
+import ForgetPassword from "./pages/ForgetPassword";
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+    errorElement: <Error />
+  },
+  {
+    path: '/news',
+    element: <News />
+  },
+  {
+    path: '/login',
+    element: <Login />
+  },
+  {
+    path: '/forgetpassword',
+    element: <ForgetPassword />
+  },
+  {
+    path: '/register',
+    element: <Register />
+  },
+  {
+    path: '/home',
+    element: (
+        <UserHome />
+    )
+  },
+  {
+    path: '/article',
+    element: (
+        <UserNews />
+    )
+  },
+  {
+    path: '/article/:section',
+    element: (
+        <Article />
+    )
+  },
+  {
+    path: '/catatankeuangan/:section',
+    element: (
+        <CatatanKeuangan />
+    )
+  },
+  {
+    path: '/profile',
+    element: (
+        <Profile />
+    )
+  },
+  {
+    path: '/profilesetting',
+    element: (
+        <ProfileSetting />
+    )
+  },
+]);
 
 function App() {
   return (
-    <>
-      
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<UserHome />} />
-        <Route path="/catatankeuangan/:section" element={<CatatanKeuangan />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/profileSetting" element={<ProfileSetting />} />
-      </Routes>
-    </>
+    <RouterProvider router={router} />
   );
 }
 

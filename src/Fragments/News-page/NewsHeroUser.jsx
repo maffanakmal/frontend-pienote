@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import { Container, Row, Col, Carousel, Button } from 'react-bootstrap'
+import {useNavigate} from 'react-router-dom'
 import menabungImg from "../../assets/Image/newshero-1.png"
 import faqImg from '../../assets/Image/asking-question.png';
-import LoginModal from '../../components/LoginModal';
 import '../../assets/Css/LandingPage.css'
 
 const LandingPageHeroUser = () => {
     const [show, setShow] = useState(false);
+    const navigate = useNavigate()
 
     return (
         <>
@@ -19,7 +20,7 @@ const LandingPageHeroUser = () => {
                                     Mari menabung bersama teman <br/> dan pasangan kalian!!!
                                 </h4>
                                 <p className="text-white fs-5 text-center">Mulai langkah kecil hari ini dan rasakan manfaat besar di masa depan. Menabung bersama, mencapai mimpi bersama!</p>
-                                <Button onClick={() => setShow(true)} className="btn-readmore mt-4 fw-bolder rounded-5 w-auto fs-6">
+                                <Button onClick={() => navigate('/catatantabungan')} className="btn-readmore mt-4 fw-bolder rounded-5 w-auto fs-6">
                                     Mulai Menabung <i class="fa-solid fa-angle-right"></i>
                                 </Button>
                             </Col>
@@ -35,7 +36,7 @@ const LandingPageHeroUser = () => {
                                     Gimana? Masih bimbang dan bingung?
                                 </h3>
                                 <h2 className="text-white text-center fw-bold">Ini jawabannya!</h2>
-                                <Button onClick={() => setShow(true)} className="btn-faq mt-4 fw-bolder rounded-5 w-25 fs-6">
+                                <Button className="btn-faq mt-4 fw-bolder rounded-5 w-25 fs-6">
                                     FAQ
                                 </Button>
                             </Col>
@@ -46,7 +47,6 @@ const LandingPageHeroUser = () => {
                     </Carousel.Item>
                 </Carousel>
             </Container>
-            <LoginModal show={show} setShow={setShow} />
         </>
     )
 }

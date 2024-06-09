@@ -1,12 +1,12 @@
 import '../assets/Css/NavBar-Footer.css'
 import { useState, useEffect } from 'react'
 import { Navbar, Container, Nav, Dropdown } from 'react-bootstrap'
-import { navLinks } from '../assets/Js/index'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { Link } from 'react-scroll'
 import axios from 'axios'
 import navLogo from '../assets/Image/pienotes-logomark-w.png'
 import profileImg from '../assets/Image/people-1.webp'
+import ArticlePage from '../pages/Article'
 
 const ProfileNavbarComp = () => {
     const [changeColor, setChangeColor] = useState(false);
@@ -31,13 +31,14 @@ const ProfileNavbarComp = () => {
     const logout = async () => {
         try {
             await axios.delete('http://localhost:8000/logout');
-            // Clear token or any auth state if needed
-            localStorage.removeItem('token'); // Example if using localStorage
             navigate('/');
         } catch (err) {
             console.error('Logout error:', err);
         }
     }
+
+    const location = useLocation();
+    const isUserHomePage = location.pathname === '/home';
 
     return (
         <Navbar id='navbar' expand="lg" className={changeColor ? "nav-active" : ""}>
@@ -48,27 +49,54 @@ const ProfileNavbarComp = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mx-auto">
-                        {navLinks.map((getLinkData) => (
-                            <div className='nav-link' key={getLinkData.id}>
+                        <div className='nav-link'>
+                            {isUserHomePage ? (
                                 <Link
-                                    to={getLinkData.path}
+                                    to='home'
                                     spy={true}
                                     smooth={true}
-                                    offset={-70} // Adjusted offset for better scroll positioning
-                                    duration={500} // Adjusted duration for smoother scrolling
-                                    activeClass="active" // Class to apply when the link is active
+                                    offset={-70}
+                                    duration={500}
+                                    activeClass="active"
                                 >
-                                    {getLinkData.text}
+                                    Home
                                 </Link>
-                            </div>
-                        ))}
+                            ) : (
+                                <NavLink onClick={() => navigate('/home')}>Home</NavLink>
+                            )}
+                            <NavLink
+                                to='/article'
+                                component={ArticlePage}
+                            >
+                                News
+                            </NavLink>
+                            {isUserHomePage ? (
+                                <Link
+                                to='about'
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={500}
+                                activeClass="active"
+                                >
+                                    About
+                                </Link>
+                            ) : (
+                                <NavLink onClick={() => navigate('/home')}>About</NavLink>
+                            )}
+                            
+                            <NavLink
+                            >
+                                Contact
+                            </NavLink>
+                        </div>
                     </Nav>
-                    <div className='notification-icon d-flex aiign-items-center justify-content-center mx-3'>
+                    <div className='notification-icon d-flex align-items-center justify-content-center mx-3'>
                         <NavLink><i class="fa-solid fa-bell"></i></NavLink>
                     </div>
-                    <Dropdown>
+                    <Dropdown className='w-auto'>
                         <Dropdown.Toggle className='nav-dropdown'>
-                            <img src={profileImg} alt=""/>
+                            <img src={profileImg} alt="" />
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>

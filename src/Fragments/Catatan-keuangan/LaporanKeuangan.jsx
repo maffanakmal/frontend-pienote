@@ -1,6 +1,6 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
-import { columns, data as tableData } from '../../assets/Js/catatan-keuangan'; // Renamed to tableData
+import { columns, dataTabel as tableData } from '../../assets/Js/catatan-keuangan'; // Renamed to tableData
 import { Row, Col, Button } from 'react-bootstrap'
 import {
     Chart as ChartJs,
@@ -65,6 +65,7 @@ const CatatanPemasukan = () => {
         responsive: true,
         maintainAspectRatio: false, // Allow the chart to resize without maintaining the aspect ratio
     };
+    
 
     return (
         <>
@@ -75,7 +76,7 @@ const CatatanPemasukan = () => {
                         <p className='text-white mt-1'>1 April 2024 - 20 Juni 2024</p>
                     </div>
                     <div className='siklus-keuangan d-flex align-items-center'>
-                        <Button className='btn-ubahsiklus fw-bolder'>Ubah Siklus</Button>
+                        <Button className='btn-ubahsiklus fw-bolder w-auto'>Ubah Siklus</Button>
                     </div>
                 </div>
             </div>
@@ -119,7 +120,7 @@ const CatatanPemasukan = () => {
                 </div>
             </div>
             <div className='d-flex justify-content-center align-items-center '>
-                <Button className=''>Cetak Laporan Keuangan</Button>
+                <Button className='w-auto'>Cetak Laporan Keuangan</Button>
             </div>
         </>
     );
