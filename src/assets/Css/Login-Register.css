@@ -53,6 +53,7 @@
     position: absolute;
     z-index: 9999;
     right: 0;
+    padding: 10px;
     top: 50%;
     width: auto;
     transform: translateY(-50%);

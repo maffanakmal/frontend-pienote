@@ -8,7 +8,7 @@ const Profile = () => {
         <>
             <div className='profile-container min-vh-100 d-flex justify-content-center align-items-center'>
                 <div className="profile-back">
-                    <NavLink to="/profileSetting"><i class="fa-solid fa-arrow-left"></i></NavLink>
+                    <NavLink to="/home" className='w-auto'><i class="fa-solid fa-arrow-left"></i></NavLink>
                 </div>
             <div className="profile-card row rounded-4 p-3 area-box border m-4">
                 <div className="profile-image d-flex justify-content-center align-items-center">
@@ -20,7 +20,7 @@ const Profile = () => {
                     <p className="mb-4">@lauraziegler</p>
                     <p className="mb-4">12 Januari 2024</p>
                     <div>
-                        <button className="btn btn-primary btn-lg fs-6">Edit Profile</button>
+                        <button className="btn btn-primary btn-lg fs-6 w-auto">Edit Profile</button>
                     </div>
                 </div>
             </div>

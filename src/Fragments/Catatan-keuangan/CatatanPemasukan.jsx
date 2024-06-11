@@ -143,8 +143,8 @@ const CatatanPemasukan = () => {
                     <Table striped bordered hover>
                         <thead>
                             <tr className='text-center'>
-                                <th>Nominal</th>
-                                <th>Deskripsi</th>
+                                <th>Nominal & Deskripsi</th>
+                                <th>Tanggal</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -152,7 +152,7 @@ const CatatanPemasukan = () => {
                                 return (
                                     <tr key={index} className='text-center'>
                                         <td>
-                                            <h5>{pemasukan.amount}</h5>
+                                            <h5>Rp. {pemasukan.amount}</h5>
                                             <p>{pemasukan.description}</p>
                                         </td>
                                         <td>{pemasukan.date}</td>

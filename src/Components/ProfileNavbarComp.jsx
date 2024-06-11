@@ -100,7 +100,7 @@ const ProfileNavbarComp = () => {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1"><i className="fa-solid fa-id-card"></i> See Profile</Dropdown.Item>
+                            <Dropdown.Item onClick={() => navigate('/profile')}><i className="fa-solid fa-id-card"></i> See Profile</Dropdown.Item>
                             <Dropdown.Item href="#/action-2"><i className="fa-solid fa-gear"></i> Settings</Dropdown.Item>
                             <Dropdown.Item onClick={logout}><i className="fa-solid fa-arrow-right-from-bracket"></i> Logout</Dropdown.Item>
                         </Dropdown.Menu>

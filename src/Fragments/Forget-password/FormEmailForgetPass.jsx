@@ -1,19 +1,33 @@
 import React from 'react'
-import '../../assets/Css/ForgetPassword.css'
-import { NavLink } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { NavLink, useNavigate } from 'react-router-dom';
+import PeriksaEmailForgetPass from '../Forget-password/PeriksaEmailForgetPass'
 
 const FormEmailForgetPass = () => {
+    const navigate = useNavigate()
+
     return (
         <>
-            <div className="form-group">
-                <label htmlFor="email">Masukkan Alamat Email Anda</label>
-                <p>Masukkan alamat email yang terkait dengan akun Anda di bawah ini. Kami akan mengirimkan tautan untuk mengatur ulang password Anda.</p><br />
-                <label htmlFor="email">Masukkan Alamat Email</label>
-                <input type="email" id="email" placeholder="Masukkan Email" />
-            </div>
-            <div className="buttons">
-                <NavLink className='button secondary' to='/login'> Kembali </NavLink>
-                <NavLink className='button primary' to='/forgetPassword2'> Konfirmasi </NavLink>
+            <h3 className='mb-3'>Masukkan Alamat Email Anda</h3>
+            <p className='mb-3'>Masukkan alamat email yang terkait dengan akun Anda di bawah ini. Kami akan mengirimkan tautan untuk mengatur ulang password Anda.</p>
+            <div className="mb-3 mb-4">
+                        <label htmlFor="enterEmail" className="form-label">Masukkan Alamat Email Anda</label>
+                        <input
+                            type="text"
+                            name="enterEmail"
+                            className="form-control fw-light rounded-2"
+                            id="enterEmail"
+                            placeholder='Masukkan email'
+                            required
+                        />
+                    </div>
+            <div className='btn-forgetpass d-flex'>
+            <Button className='mx-auto btn-secondary' onClick={() => navigate('/login')}>
+                Kembali
+            </Button>
+            <Button className='mx-auto btn-primary' type='submit' onClick={() => navigate('/forgetpassword/check-email')}>
+                Konfirmasi
+            </Button>
             </div>
         </>
     )

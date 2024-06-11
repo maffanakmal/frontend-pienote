@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import ForgetPassword from '../../pages/ForgetPassword';
 
 const LoginForm = () => {
     const [values, setValues] = useState({
@@ -109,7 +110,7 @@ const LoginForm = () => {
                             <input type="checkbox" className="form-check-input" id="rememberMe" />
                             <label className="form-check-label" htmlFor="rememberMe">Remember Me</label>
                         </div>
-                        <NavLink to="/forgetpassword">Forgot Password</NavLink>
+                        <NavLink to="/forgetpassword/form-email" component={ForgetPassword}>Forgot Password</NavLink>
                     </div>
                     <div className="mb-3">
                         <button type="submit" className="btn-login w-100 fs-6">Login</button>

@@ -143,7 +143,7 @@ const CatatanPengeluaran= () => {
                     <Table striped bordered hover>
                         <thead>
                             <tr className='text-center'>
-                                <th>Nominal</th>
+                                <th>Nominal & Deskripsi</th>
                                 <th>Deskripsi</th>
                             </tr>
                         </thead>
@@ -152,7 +152,7 @@ const CatatanPengeluaran= () => {
                                 return (
                                     <tr key={index} className='text-center'>
                                         <td>
-                                            <h5>{pengeluaran.amount}</h5>
+                                            <h5>Rp. {pengeluaran.amount}</h5>
                                             <p>{pengeluaran.description}</p>
                                         </td>
                                         <td>{pengeluaran.date}</td>
