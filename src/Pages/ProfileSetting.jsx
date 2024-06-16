@@ -7,30 +7,64 @@ import { NavLink } from 'react-router-dom'
 const ProfileSetting = () => {
   return (
     <>
-      <div className='setting-container min-vh-100 d-flex justify-content-center align-items-center'>
-        <div className="settings">
-          <h2 className='text-center'>Pengaturan</h2>
-          <div className="settings-cards">
-            <NavLink to="/profile">
-              <Card className="card" data-card="profile">
-                <i className="fa-solid fa-user text-center"></i>
-                <h3>Profile</h3>
-                <p>Kelola informasi akun Anda di sini. Perbarui detail pribadi, email, dan nomor handphone untuk menjaga akun Anda.</p>
-              </Card>
-            </NavLink>
-            <Card className="card" data-card="security">
-              <i className="fa-solid fa-shield text-center"></i>
-              <h3>Login & security</h3>
-              <p>Keamanan akun Anda adalah prioritas kami. Ganti kata sandi Anda secara berkala untuk menjaga keamanan.</p>
-            </Card>
-            <Card classNames="card" data-card="language">
-              <i className="fa-solid fa-language text-center"></i>
-              <h3>Bahasa</h3>
-              <p>Pilih bahasa yang Anda inginkan. Kami menawarkan berbagai pilihan bahasa.</p>
-            </Card>
-          </div>
-        </div>
-      </div>
+      <Container style={{ marginTop: '20px', backgroundColor: '#e0f0ff', padding: '20px', borderRadius: '10px' }}>
+      <h2>Pengaturan</h2>
+      <Row className="mt-4">
+        <Col md={6} lg={4} className="mb-4 d-flex align-items-stretch">
+          <Card className="w-100">
+            <Card.Body>
+              <Card.Title>PROFILE</Card.Title>
+              <Card.Text>
+                Kelola informasi akun Anda di sini. Perbarui detail pribadi, email, dan nomor handphone untuk menjaga akun Anda.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md={6} lg={4} className="mb-4 d-flex align-items-stretch">
+          <Card className="w-100">
+            <Card.Body>
+              <Card.Title>Login & Security</Card.Title>
+              <Card.Text>
+                Keamanan akun Anda adalah prioritas kami. Ganti kata sandi Anda secara berkala untuk menjaga keamanan.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md={6} lg={4} className="mb-4 d-flex align-items-stretch">
+          <Card className="w-100">
+            <Card.Body>
+              <Card.Title>Mata Uang</Card.Title>
+              <Card.Text>
+                Ubah pengaturan mata uang Anda hari ini dan nikmati pengalaman yang lebih terpersonalisasi dan efisien.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+      <Row className="mt-4 justify-content-center">
+        <Col md={6} lg={4} className="mb-4 d-flex align-items-stretch">
+          <Card className="w-100">
+            <Card.Body>
+              <Card.Title>Bahasa</Card.Title>
+              <Card.Text>
+                Pilih bahasa yang Anda inginkan. Kami menawarkan berbagai pilihan bahasa.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md={6} lg={4} className="mb-4 d-flex align-items-stretch">
+          <Card className="w-100">
+            <Card.Body>
+              <Card.Title>Tema Gelap</Card.Title>
+              <Card.Text>
+                Rasakan kesan elegan dan hemat daya dengan Tema Gelap. Aktifkan sekarang untuk gaya yang lebih keren dan baterai yang lebih awet.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+
     </>
   )
 }
