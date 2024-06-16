@@ -1,7 +1,7 @@
 import '../assets/Css/LandingPage.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {jwtDecode} from 'jwt-decode';
+// import {jwtDecode} from 'jwt-decode'; 
 import { Container, Row, Col } from 'react-bootstrap';
 import LandingPageHeroUser from '../Fragments/Landing-page/LandingPageHeroUser';
 import LandingPageFeatureUser from '../Fragments/Landing-page/LandingPageFeatureUser';
@@ -13,28 +13,28 @@ import ProfileNav from '../Components/ProfileNav';
 import FooterComp from '../Components/FooterComp';
 
 const UserHome = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [token, setToken] = useState('');
-    const [message, setMessage] = useState('')
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // const [token, setToken] = useState('');
+    // const [message, setMessage] = useState('')
 
-    useEffect(() => {
-        axios.get('http://localhost:8000/')
-            .then(res => {
-                if(res.data.Status === 'OK') {
-                    setIsLoggedIn(true)
-                    // Extract the access token from the server response
-                    const token = res.data.token;
-                    // Store the access token in the token state
-                    setToken(token);
-                } else {
-                    setIsLoggedIn(false)
-                    setMessage(res.data.Error)
-                }
-            })
-            .then(err => {
-                console.log(err)
-            })
-    }, [])
+    // useEffect(() => {
+    //     axios.get('http://localhost:8000/')
+    //         .then(res => {
+    //             if(res.data.Status === 'OK') {
+    //                 setIsLoggedIn(true)
+    //                 // Extract the access token from the server response
+    //                 const token = res.data.token;
+    //                 // Store the access token in the token state
+    //                 setToken(token);
+    //             } else {
+    //                 setIsLoggedIn(false)
+    //                 setMessage(res.data.Error)
+    //             }
+    //         })
+    //         .then(err => {
+    //             console.log(err)
+    //         })
+    // }, [])
 
     return (
         <>

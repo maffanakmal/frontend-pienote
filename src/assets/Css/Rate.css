@@ -1,108 +1,16 @@
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #3D8BFD;
-    padding: 10px 20px;
-}
-
-.logo {
-    width: 40px;
-    height: 40px;
-    background: url('profil1.png') no-repeat center center;
-    background-size: cover;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 50px;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-.profile {
-    width: 40px;
-    height: 40px;
-    background: url('C:\Users\Murti\Documents\Pixel perfect\frontend-pienote\src\assets\Image\profil1.png') no-repeat center center;
-    background-size: cover;
-    border-radius: 50%;
-}
-
-.feedback-form {
-    background-color: #9EC5FE;
+.feedback-container {
+    background-color: #e3f2fd;
     border-radius: 10px;
     padding: 20px;
-    margin: 120px auto;
-    width: 100%;
-    max-width: 700px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    max-width: 600px;
+    margin: 50px auto;
 }
-
-.feedback-form h2 {
-    color: #000;
-    margin-bottom: 10px;
+.star-rating {
+    font-size: 2rem;
 }
-
-.feedback-form p {
-    color: #4B5563;
-    margin-bottom: 20px;
-}
-
-.feedback-form h3 {
-    color: #000;
-    margin-bottom: 10px;
-}
-
-.stars {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.star {
-    font-size: 30px;
+/* .star-rating .fa-star {
     cursor: pointer;
-    color: #B0BEC5;
 }
-
-.star:hover,
-.star:hover ~ .star {
-    color: #FFD700;
-}
-
-textarea {
-    width: 90%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #B0BEC5;
-    margin-bottom: 20px;
-    resize: none;
-    height: 100px;
-}
-
-button {
-    background-color: #3B82F6;
-    color: white;
-    border: none;
-    padding: 10px 300px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #2563EB;
-}
+.star-rating .checked {
+    color: orange;
+} */

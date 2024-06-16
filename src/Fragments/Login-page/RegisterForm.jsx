@@ -3,63 +3,63 @@ import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Alert, Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const RegisterForm = () => {
-    const [values, setValues] = useState({
-        full_name: '',
-        username: '',
-        email: '',
-        phone_number: '',
-        password: '',
-        confirm_pass: '',
-    });
+    // const [values, setValues] = useState({
+    //     full_name: '',
+    //     username: '',
+    //     email: '',
+    //     phone_number: '',
+    //     password: '',
+    //     confirm_pass: '',
+    // });
 
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
-    const [show, setShow] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const navigate = useNavigate();
+    // const [error, setError] = useState('');
+    // const [success, setSuccess] = useState('');
+    // const [show, setShow] = useState(false);
+    // const [showPassword, setShowPassword] = useState(false);
+    // const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    // const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        axios.post('http://localhost:8000/register', values, { withCredentials: true })
-            .then(res => {
-                if (res.data.error) {
-                    setError(res.data.error);
-                    setShow(true);
-                    setTimeout(() => {
-                        setShow(false);
-                    }, 5000);
-                } else {
-                    setSuccess('Your account has been created!');
-                    setShow(true);
-                    setTimeout(() => {
-                        setShow(false);
-                    }, 4000);
-                    setTimeout(() => {
-                        navigate('/login');
-                    }, 5000);
-                }
-            })
-            .catch(err => {
-                const errorMessage = err.response && err.response.data && err.response.data.error
-                    ? err.response.data.error
-                    : 'An unexpected error occurred';
-                setError(errorMessage);
-                setShow(true);
-                setTimeout(() => {
-                    setShow(false);
-                }, 5000);
-            });
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     axios.post('http://localhost:8000/register', values, { withCredentials: true })
+    //         .then(res => {
+    //             if (res.data.error) {
+    //                 setError(res.data.error);
+    //                 setShow(true);
+    //                 setTimeout(() => {
+    //                     setShow(false);
+    //                 }, 5000);
+    //             } else {
+    //                 setSuccess('Your account has been created!');
+    //                 setShow(true);
+    //                 setTimeout(() => {
+    //                     setShow(false);
+    //                 }, 4000);
+    //                 setTimeout(() => {
+    //                     navigate('/login');
+    //                 }, 5000);
+    //             }
+    //         })
+    //         .catch(err => {
+    //             const errorMessage = err.response && err.response.data && err.response.data.error
+    //                 ? err.response.data.error
+    //                 : 'An unexpected error occurred';
+    //             setError(errorMessage);
+    //             setShow(true);
+    //             setTimeout(() => {
+    //                 setShow(false);
+    //             }, 5000);
+    //         });
+    // };
 
     return (
         <>
             <div className="loginRegister-wrapper">
-                <form onSubmit={handleSubmit}>
+                <form>
                     {show && error && (
                         <Alert variant="danger" onClose={() => setShow(false)} dismissible>
                             <p>{error}</p>
@@ -135,7 +135,12 @@ const RegisterForm = () => {
                                 className="eye-btn"
                                 onClick={() => setShowPassword(!showPassword)}
                             >
-                                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                                {showPassword ? (
+                                    <i className="fa-solid fa-eye"></i>
+                                    ) : (
+                                    <i className="fa-solid fa-eye-slash"></i>
+                                )}
+                                {/* <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} /> */}
                             </button>
                         </div>
                     </div>
@@ -156,7 +161,12 @@ const RegisterForm = () => {
                                 className="eye-btn"
                                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                             >
-                                <FontAwesomeIcon icon={showConfirmPassword ? faEyeSlash : faEye} />
+                                {showPassword ? (
+                                    <i className="fa-solid fa-eye"></i>
+                                    ) : (
+                                    <i className="fa-solid fa-eye-slash"></i>
+                                )}
+                                {/* <FontAwesomeIcon icon={showConfirmPassword ? faEyeSlash : faEye} /> */}
                             </button>
                         </div>
                     </div>
