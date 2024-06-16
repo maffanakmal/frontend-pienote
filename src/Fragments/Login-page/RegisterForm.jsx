@@ -121,7 +121,7 @@ const RegisterForm = () => {
                     <div className="mb-4">
                         <label htmlFor="password" className="form-label">Password</label>
                         <div className="input-group">
-                            <input
+                        <input
                                 type={showPassword ? 'text' : 'password'}
                                 name="password"
                                 onChange={e => setValues({ ...values, password: e.target.value })}
@@ -135,7 +135,11 @@ const RegisterForm = () => {
                                 className="eye-btn"
                                 onClick={() => setShowPassword(!showPassword)}
                             >
-                                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                                {showPassword ? (
+                                    <i className="fa-solid fa-eye"></i>
+                                    ) : (
+                                    <i className="fa-solid fa-eye-slash"></i>
+                                )}
                             </button>
                         </div>
                     </div>

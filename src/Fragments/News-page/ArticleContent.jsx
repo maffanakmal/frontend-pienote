@@ -8,7 +8,7 @@ import '../../assets/Css/News.css'
 const ArticleContent = () => {
     return (
         <>
-            <Container className='article-content-wrapper p-5 m-5'>
+            <Container className='article-content-wrapper min-vh-100 w-100'>
                 <NavLink to='/article' className='mb-3 fs-5'><i class="fa-solid fa-arrow-left"></i> Kembali</NavLink>
                 <Row md='8' className='d-flex align-items-center justify-content-center'>
                     <h1 className='mb-4'>Trik menabung bersama teman!</h1>

@@ -2,7 +2,7 @@ import { Modal, Form, Button, Row, Col, Alert } from 'react-bootstrap';
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const CatatanPemasukanModal = ({ show, setShow }) => {
+const CatatanPemasukanModal = ({ show, setShow, fetchPemasukan }) => {
     const [values, setValues] = useState({
         amount: '',
         income_category: '',
@@ -31,6 +31,7 @@ const CatatanPemasukanModal = ({ show, setShow }) => {
                 }, 3000);
             } else {
                 setSuccess('Catatan berhasil ditambahkan');
+                fetchPemasukan(); // Fetch updated data
                 setTimeout(() => {
                     setSuccess('');
                     handleClose();
@@ -91,7 +92,7 @@ const CatatanPemasukanModal = ({ show, setShow }) => {
                         </Col>
                         <Col md='6'>
                             <Form.Group className="mb-3">
-                                <Form.Label className='text-white'>date</Form.Label>
+                                <Form.Label className='text-white'>Tanggal</Form.Label>
                                 <Form.Control
                                     type="date"
                                     name="date"
@@ -104,7 +105,7 @@ const CatatanPemasukanModal = ({ show, setShow }) => {
                             </Form.Group>
                         </Col>
                     </Row>
-                        <Form.Label className='text-white'>Pilih income_category</Form.Label>
+                        <Form.Label className='text-white'>Pilih Kategori Pemasukan</Form.Label>
                     <Form.Group className="mb-3">
                         <Form.Control
                             name="income_category"

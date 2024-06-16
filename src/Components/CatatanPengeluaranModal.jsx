@@ -2,7 +2,7 @@ import { Modal, Form, Button, Row, Col, Alert } from 'react-bootstrap';
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const CatatanPengeluaranModal = ({ show, setShow }) => {
+const CatatanPengeluaranModal = ({ show, setShow, fetchPengeluaran }) => {
     const [values, setValues] = useState({
         amount: '',
         expense_category: '',
@@ -31,6 +31,7 @@ const CatatanPengeluaranModal = ({ show, setShow }) => {
                 }, 3000);
             } else {
                 setSuccess('Catatan berhasil ditambahkan');
+                fetchPengeluaran(); // Fetch updated data
                 setTimeout(() => {
                     setSuccess('');
                     handleClose();
@@ -91,7 +92,7 @@ const CatatanPengeluaranModal = ({ show, setShow }) => {
                         </Col>
                         <Col md='6'>
                             <Form.Group className="mb-3">
-                                <Form.Label className='text-white'>date</Form.Label>
+                                <Form.Label className='text-white'>Tanggal</Form.Label>
                                 <Form.Control
                                     type="date"
                                     name="date"
@@ -104,14 +105,14 @@ const CatatanPengeluaranModal = ({ show, setShow }) => {
                             </Form.Group>
                         </Col>
                     </Row>
-                        <Form.Label className='text-white'>Pilih expense_category</Form.Label>
+                        <Form.Label className='text-white'>Pilih Kategori Pengeluaran</Form.Label>
                     <Form.Group className="mb-3">
                         <Form.Control
                             name="expense_category"
                             as="select"
                             value={values.expense_category}
                             onChange={e => setValues({ ...values, expense_category: e.target.value })}
-                            id="katPemasukan"
+                            id="katPengeluaran"
                             required
                         >
                             <option value="gaji">Gaji</option>

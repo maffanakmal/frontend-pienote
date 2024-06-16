@@ -53,47 +53,64 @@ const customStyles = {
     },
 };
 
-const CatatanPengeluaran= () => {
-
-    // Chart dataset
-    const chartData = {
-        labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
-        datasets: [{
-            label: 'My First dataset',
-            data: [65, 59, 80, 81, 56, 55, 40],
-            fill: false,
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgba(255, 99, 132, 0.2)',
-            tension: 0.4
-        }]
-    };
-
-    const options = {
-        responsive: true,
-        maintainAspectRatio: false, // Allow the chart to resize without maintaining the aspect ratio
-    };
+const CatatanPengeluaran = () => {
 
     const [show, setShow] = useState(false);
     const [data, setData] = useState([]);
     const [totalAmount, setTotalAmount] = useState(0);
+    const [chartData, setChartData] = useState({ labels: [], datasets: [] });
 
-    const fetchPengeluaran = async (setData, setTotalAmount) => {
+    const fetchPengeluaran = async () => {
         try {
             const response = await axios.get('http://localhost:8000/catatankeuangan/pengeluaran', {
                 withCredentials: true
             });
-            setData(response.data.pengeluaran);
+            
+            // Sort the data by date in descending order
+            const sortedData = response.data.pengeluaran.sort((a, b) => new Date(b.date) - new Date(a.date));
+            setData(sortedData);
 
-            const total = response.data.pengeluaran.reduce((acc, curr) => acc + parseFloat(curr.amount), 0);
+            const total = sortedData.reduce((acc, curr) => acc + parseFloat(curr.amount), 0);
             setTotalAmount(total.toFixed(2));
+
+            // Prepare chart data
+            const labels = sortedData.map(entry => formatDate(entry.date));
+            const amounts = sortedData.map(entry => parseFloat(entry.amount));
+            setChartData({
+                labels: labels,
+                datasets: [{
+                    label: 'pengeluaran',
+                    data: amounts,
+                    fill: false,
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgba(255, 99, 132, 0.2)',
+                    tension: 0.4
+                }]
+            });
+
         } catch (error) {
             console.error('Error fetching pengeluaran data:', error);
         }
     };
 
     useEffect(() => {
-        fetchPengeluaran(setData, setTotalAmount); // Pass setData and setTotalAmount here
+        fetchPengeluaran();
     }, []);
+
+    // Function to format amount
+    const formatAmount = (amount) => {
+        return new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            minimumFractionDigits: 2
+        }).format(amount);
+    };
+
+    // Function to format date
+    const formatDate = (dateString) => {
+        const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+        return new Date(dateString).toLocaleDateString('id-ID', options);
+    };
 
     const columns = [
         {
@@ -105,6 +122,7 @@ const CatatanPengeluaran= () => {
             name: 'Amount',
             selector: 'amount',
             sortable: true,
+            format: row => formatAmount(row.amount)
         },
         {
             name: 'Income Category',
@@ -120,6 +138,7 @@ const CatatanPengeluaran= () => {
             name: 'Date',
             selector: 'date',
             sortable: true,
+            format: row => formatDate(row.date)
         },
     ];
 
@@ -127,24 +146,17 @@ const CatatanPengeluaran= () => {
         <>
             <div className='rounded-3 mb-3'>
                 <div className='nominal-info mx-auto'>
-                    <h3 className='fw-bold text-white text-center'>Rp. {totalAmount}</h3>
+                    <h3 className='fw-bold text-white text-center'>{formatAmount(totalAmount)}</h3>
                 </div>
             </div>
             <h4 className='text-center'>Pengeluaran Terkini</h4>
             <div className="col-md-6 left-side">
                 <div className='row align-items-center p-4 rounded'>
-                    {/* <DataTable
-                        columns={columns}
-                        data={data} // Corrected reference to tableData
-                        pagination
-                        customStyles={customStyles}
-                    /> */}
-
                     <Table striped bordered hover>
                         <thead>
                             <tr className='text-center'>
                                 <th>Nominal & Deskripsi</th>
-                                <th>Deskripsi</th>
+                                <th>Tanggal</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -152,14 +164,13 @@ const CatatanPengeluaran= () => {
                                 return (
                                     <tr key={index} className='text-center'>
                                         <td>
-                                            <h5>Rp. {pengeluaran.amount}</h5>
+                                            <h5>{formatAmount(pengeluaran.amount)}</h5>
                                             <p>{pengeluaran.description}</p>
                                         </td>
-                                        <td>{pengeluaran.date}</td>
+                                        <td>{formatDate(pengeluaran.date)}</td>
                                     </tr>
                                 )
                             })}
-
                         </tbody>
                     </Table>
                 </div>
@@ -167,8 +178,11 @@ const CatatanPengeluaran= () => {
             <div className="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column right-side">
                 <div className="chart-info mb-3">
                     <Line
-                        data={chartData} // Corrected reference to chartData
-                        options={options} // Corrected reference to options
+                        data={chartData} 
+                        options={{
+                            responsive: true,
+                            maintainAspectRatio: false, // Allow the chart to resize without maintaining the aspect ratio
+                        }} 
                     />
                 </div>
                 <div>
@@ -177,7 +191,7 @@ const CatatanPengeluaran= () => {
                     </Button>
                 </div>
             </div>
-            <CatatanPengeluaranModal show={show} setShow={setShow} />
+            <CatatanPengeluaranModal show={show} setShow={setShow} fetchPengeluaran={fetchPengeluaran} />
         </>
     );
 }

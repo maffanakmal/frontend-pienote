@@ -1,0 +1,23 @@
+.tabungan-container {
+    padding-top: 100px;
+}
+
+.tabungan-container .tabungansendiri-card {
+    background-color: var(--primary-color);
+    height: 170px;
+    transition: var(--btn-transition);
+}
+
+.tabungan-container .tabungansendiri-card:hover {
+    background-color: var(--primary-dark);
+}
+
+.tabungan-container .tabunganbersama-card {
+    background-color: var(--primary-color);
+    height: 190px;
+    transition: var(--btn-transition);
+}
+
+.tabungan-container .tabunganbersama-card:hover {
+    background-color: var(--primary-dark);
+}

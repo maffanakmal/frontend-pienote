@@ -1,5 +1,6 @@
 import React from 'react'
 import '../assets/Css/Profile.css'
+import {Card} from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
@@ -11,22 +12,22 @@ const ProfileSetting = () => {
           <h2 className='text-center'>Pengaturan</h2>
           <div className="settings-cards">
             <NavLink to="/profile">
-              <div className="card" data-card="profile">
+              <Card className="card" data-card="profile">
                 <i className="fa-solid fa-user text-center"></i>
                 <h3>Profile</h3>
                 <p>Kelola informasi akun Anda di sini. Perbarui detail pribadi, email, dan nomor handphone untuk menjaga akun Anda.</p>
-              </div>
+              </Card>
             </NavLink>
-            <div className="card" data-card="security">
+            <Card className="card" data-card="security">
               <i className="fa-solid fa-shield text-center"></i>
               <h3>Login & security</h3>
               <p>Keamanan akun Anda adalah prioritas kami. Ganti kata sandi Anda secara berkala untuk menjaga keamanan.</p>
-            </div>
-            <div classNames="card" data-card="language">
+            </Card>
+            <Card classNames="card" data-card="language">
               <i className="fa-solid fa-language text-center"></i>
               <h3>Bahasa</h3>
               <p>Pilih bahasa yang Anda inginkan. Kami menawarkan berbagai pilihan bahasa.</p>
-            </div>
+            </Card>
           </div>
         </div>
       </div>

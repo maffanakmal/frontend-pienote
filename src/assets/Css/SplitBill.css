@@ -1,0 +1,18 @@
+.splitbill-container {
+    padding-top: 100px;
+}
+
+.splitbill-container .splitbill-wrapper {
+    padding: 40px 50px;
+    background-color: var(--primary-opacity-40);
+}
+
+.splitbill-input-row {
+    background-color: var(--primary-color);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.splitbill-input-row label{
+    color: white;
+}

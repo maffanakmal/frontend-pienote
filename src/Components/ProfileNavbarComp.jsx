@@ -44,7 +44,7 @@ const ProfileNavbarComp = () => {
         <Navbar id='navbar' expand="lg" className={changeColor ? "nav-active" : ""}>
             <Container>
                 <Navbar.Brand href="#home" className='fs-3 fw-bold'>
-                    <NavLink to='/'><img src={navLogo} alt="PieNote" width='36px' /></NavLink>
+                    <NavLink to='/home'><img src={navLogo} alt="PieNote" width='36px' /></NavLink>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -101,7 +101,7 @@ const ProfileNavbarComp = () => {
 
                         <Dropdown.Menu>
                             <Dropdown.Item onClick={() => navigate('/profile')}><i className="fa-solid fa-id-card"></i> See Profile</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2"><i className="fa-solid fa-gear"></i> Settings</Dropdown.Item>
+                            <Dropdown.Item onClick={() => navigate('/profilesetting')}><i className="fa-solid fa-gear"></i> Settings</Dropdown.Item>
                             <Dropdown.Item onClick={logout}><i className="fa-solid fa-arrow-right-from-bracket"></i> Logout</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>

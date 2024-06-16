@@ -72,13 +72,8 @@
 
 .profile-card {
     background-color: var(--primary-color);
-    height: 500px;
+    height: 350px;
 }
-
-/* .profile-card .profile-image img {
-    position: absolute;
-    transform: translate(50%, 50-);
-} */
 
 .profile-card .profile-image img {
     width: 100px;

@@ -4,8 +4,6 @@ import googleImg from "../../assets/Image/google-logo.png";
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Alert } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import ForgetPassword from '../../pages/ForgetPassword';
 
 const LoginForm = () => {
@@ -87,7 +85,7 @@ const LoginForm = () => {
                     <div className="mb-4">
                         <label htmlFor="password" className="form-label">Password</label>
                         <div className="input-group">
-                            <input
+                        <input
                                 type={showPassword ? 'text' : 'password'}
                                 name="password"
                                 onChange={e => setValues({ ...values, password: e.target.value })}
@@ -101,7 +99,11 @@ const LoginForm = () => {
                                 className="eye-btn"
                                 onClick={() => setShowPassword(!showPassword)}
                             >
-                                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                                {showPassword ? (
+                                    <i className="fa-solid fa-eye"></i>
+                                    ) : (
+                                    <i className="fa-solid fa-eye-slash"></i>
+                                )}
                             </button>
                         </div>
                     </div>

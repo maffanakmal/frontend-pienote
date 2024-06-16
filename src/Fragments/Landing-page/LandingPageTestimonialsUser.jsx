@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { testimonials } from '../../assets/Js/index'
-import LoginModal from '../../components/LoginModal';
+import { useNavigate } from 'react-router-dom';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,6 +14,9 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 
 const TestimonialsUser = () => {
+
+    const navigate = useNavigate()
+
     return (
         <>
             <Container>
@@ -75,7 +78,7 @@ const TestimonialsUser = () => {
                 </Row>
                 <Row className='mt-4'>
                     <Col md='12' className='d-flex align-items-center justify-content-center'>
-                        <button className='btn-berikan-ulasan'>Berikan Ulasan</button>
+                        <button className='btn-berikan-ulasan' onClick={() => navigate('/rating')}>Berikan Ulasan</button>
                     </Col>
                 </Row>
             </Container>
