@@ -21,3 +21,8 @@
 .tabungan-container .tabunganbersama-card:hover {
     background-color: var(--primary-dark);
 }
+
+.tabungan-container .wishlist-icon {
+    color: gold;
+    font-size: 20px;
+}

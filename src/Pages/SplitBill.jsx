@@ -18,31 +18,30 @@ const SplitBill = () => {
     const [billId, setBillId] = useState(null); // State to store the bill_id
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/berbagitagihan', values, { withCredentials: true })
-            .then(res => {
-                if (res.data.error) {
-                    setError(res.data.error);
-                    setShow(true);
-                    setTimeout(() => setShow(false), 5000);
-                } else {
-                    setBillId(res.data.bill_id); // Assuming backend returns the bill_id
-                    setSuccess('New bill created!');
-                    setShow(true);
-                    setTimeout(() => setShow(false), 4000);
-                }
-            })
-            .catch(err => {
-                const errorMessage = err.response && err.response.data && err.response.data.error
-                    ? err.response.data.error
-                    : 'An unexpected error occurred';
-                setError(errorMessage);
+        try {
+            const res = await axios.post('http://localhost:8000/berbagitagihan', values, { withCredentials: true });
+            if (res.data.error) {
+                setError(res.data.error);
                 setShow(true);
                 setTimeout(() => setShow(false), 5000);
-            });
+            } else {
+                setBillId(res.data.bill_id); // Assuming backend returns the bill_id
+                setSuccess('New bill created!');
+                setShow(true);
+                setTimeout(() => setShow(false), 4000);
+            }
+        } catch (err) {
+            const errorMessage = err.response && err.response.data && err.response.data.error
+                ? err.response.data.error
+                : 'An unexpected error occurred';
+            setError(errorMessage);
+            setShow(true);
+            setTimeout(() => setShow(false), 5000);
+        }
     };
-    
+
     const handleFriendChange = (index, value) => {
         const newFriends = [...values.friends];
         newFriends[index] = value;

@@ -15,11 +15,14 @@ const CatatanTabungan = () => {
                 <div className='w-100'>
                     <h3 className='mb-2'>Tabungan</h3>
                     <h5 className='mb-4'>Rencanakan hari esokmu dengan setiap langkah hemat bersama fitur tabungan kami</h5>
-                    <Row>
+                    <Row className='tabungan-row'>
                         <p className='mb-2'>Tabungan Saya</p>
                         <Col md='3' className='tabungansendiri-card p-4 rounded-2 mx-1 mb-2' onClick={() => navigate('/detailtabungan')}>
                             <div>
-                                <h5 className='mb-1 text-white'>Rumah</h5>
+                                <div className='d-flex justify-content-between'>
+                                    <h5 className='mb-1 text-white'>Rumah</h5>
+                                    <p><i class="wishlist-icon fa-solid fa-star"></i></p>
+                                </div>
                                 <p className='mb-3 text-white'>Nominal</p>
                                 <ProgressBar className='mb-2'></ProgressBar>
                                 <p className='text-white'>tanggal</p>
@@ -36,7 +39,10 @@ const CatatanTabungan = () => {
                         <p className='mb-2'>Tabungan Bersama</p>
                         <Col md='3' className='tabunganbersama-card p-4 rounded-2 mx-1 mb-2' onClick={() => navigate('/detailtabungan')}>
                             <div>
-                                <h5 className='mb-1 text-white'>Rumah</h5>
+                                <div className='d-flex justify-content-between'>
+                                    <h5 className='mb-1 text-white'>Rumah</h5>
+                                    <p><i class="wishlist-icon fa-solid fa-star"></i></p>
+                                </div>
                                 <p className='mb-3 text-white'>Nominal</p>
                                 <ProgressBar className='mb-2'></ProgressBar>
                                 <div className='mt-2 text-white'>
