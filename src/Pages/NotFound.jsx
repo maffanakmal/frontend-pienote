@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Row, Col} from 'react-bootstrap'
 import { useRouteError } from 'react-router-dom'
 
-const Error = () => {
+const NotFound = () => {
   const error = useRouteError()
 
   return (
@@ -20,4 +20,4 @@ const Error = () => {
   )
 }
 
-export default Error
+export default NotFound
