@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import NotFound from './pages/NotFound';
+// import NotFound from './pages/NotFoundc';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
     element: (
         <Home />
     ),
-    errorElement: <NotFound />,
+    // errorElement: <NotFound />,
   },
   {
     path: '/news',
