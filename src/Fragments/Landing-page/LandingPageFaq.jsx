@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import faqImg from '../../assets/Image/asking-question.png';
-import LoginModal from '../../Components/LoginModal';
+import LoginModal from '../../components/LoginModal';
 
 const LandingPageFaq = () => {
     const [show, setShow] = useState(false);

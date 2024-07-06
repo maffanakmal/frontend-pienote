@@ -51,7 +51,7 @@ const FooterUser = () => {
                         <Col lg='2' sm='6'>
                             <h5 className="mb-0 text-white">Contact us</h5>
                             <ul>
-                                <NavLink>Hubungi Kami</NavLink>
+                                <NavLink onClick={() => navigate('/contact')}>Hubungi Kami</NavLink>
 
                             </ul>
                         </Col>

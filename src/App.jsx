@@ -6,7 +6,7 @@ import Register from './pages/Register';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import ProfileSetting from './pages/ProfileSetting';
-import SettingsBahasa from './pages/SettingsBahasa';
+import SettingsMataUang from './pages/SettingsUang';
 import CatatanKeuangan from './pages/CatatanKeuangan';
 import UserHome from './pages/UserHome';
 import News from './pages/News';
@@ -19,8 +19,14 @@ import PublicRoute from './middleware/PublicRoute';
 import CatatanTabungan from './pages/CatatanTabungan';
 import TabunganPribadi from './Fragments/Catatan-tabungan/TabunganPribadi';
 import TabunganBersama from './Fragments/Catatan-tabungan/TabunganBersama';
-import DetailTabugan from './Fragments/Catatan-tabungan/TabunganDetail';
+import DetailTabuganPribadi from './Fragments/Catatan-tabungan/TabunganDetailPribadi';
+import DetailTabuganBersama from './Fragments/Catatan-tabungan/TabunganDetailBersama';
 import Rating from './pages/Rating';
+import ContactUs from './pages/ContactUs';
+import AccountSetting from './pages/SettingsAccount';
+import PasswordAccount from './Fragments/Account/AccountPage';
+import PasswordTabungan from './Fragments/Account/PasswordTabungan';
+import PasswordKeuangan from './Fragments/Account/PasswordKeuangan';
 
 const router = createBrowserRouter([
   {
@@ -67,6 +73,12 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: '/contact',
+    element: (
+        <ContactUs />
+    ),
+  },
+  {
     path: '/article/:section',
     element: (
         <Article />
@@ -109,9 +121,15 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/detailtabungan',
+    path: '/detailtabunganpribadi/:personalsaving_id',
     element: (
-        <DetailTabugan />
+        <DetailTabuganPribadi/>
+    ),
+  },
+  {
+    path: '/detailtabunganbersama/:groupsavings_id',
+    element: (
+        <DetailTabuganBersama/>
     ),
   },
   {
@@ -127,9 +145,33 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/settingsbahasa',
+    path: '/accountsetting',
     element: (
-        <SettingsBahasa />
+        <AccountSetting />
+    ),
+  },
+  {
+    path: '/settingmatauang',
+    element: (
+        <SettingsMataUang />
+    ),
+  },
+  {
+    path: '/passwordaccount',
+    element: (
+        <PasswordAccount />
+    ),
+  },
+  {
+    path: '/passwordtabungan',
+    element: (
+        <PasswordTabungan />
+    ),
+  },
+  {
+    path: '/passwordkeuangan',
+    element: (
+        <PasswordKeuangan />
     ),
   },
 ]);

@@ -7,6 +7,7 @@ import axios from 'axios'
 import navLogo from '../assets/Image/pienotes-logomark-w.png'
 import profileImg from '../assets/Image/people-1.webp'
 import ArticlePage from '../pages/Article'
+import ContactUs from '../pages/ContactUs'
 
 const ProfileNavbarComp = () => {
     const [changeColor, setChangeColor] = useState(false);
@@ -86,6 +87,8 @@ const ProfileNavbarComp = () => {
                             )}
                             
                             <NavLink
+                                to='/contact'
+                                component={ContactUs}
                             >
                                 Contact
                             </NavLink>

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, Button, Alert, Spinner } from "react-bootstrap";
-import Layouts from "./Layout";
+import ProfileNavbarComp from '../../components/ProfileNavbarComp'
 
 const AccountPage = () => {
     const [showAlert, setShowAlert] = useState(false);
@@ -21,25 +21,28 @@ const AccountPage = () => {
     };
 
     const btnAccount = () => {
-        window.location.href = "/account";
+        window.location.href = "/passwordaccount";
     };
 
     const btnCatatanTabungan = () => {
-        window.location.href = "/catatanTabungan";
+        window.location.href = "/passwordtabungan";
     };
 
     const btnCatatanKeuangan = () => {
-        window.location.href = "/catatanKeuangan";
+        window.location.href = "/passwordkeuangan";
     };
 
+    const navigate = useNavigate()
+
     return (
-        <Layouts>
-            <section className="block">
-                <Container fluid>
+        <>
+            <ProfileNavbarComp/>
+            <section className="d-flex align-items-center justify-content-center pt-5 min-vh-100">
+                <Container>
                     <Row className="d-flex gap-5 pt-5">
                         <Col sm={3} className="d-flex flex-column shadow-sm block vh-100">
                             <div className="d-flex align-items-center text-start mb-5">
-                                <Link to={""}>
+                                <Link onClick={() => navigate('/profilesetting')}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="30" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
                                         <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
                                     </svg>
@@ -96,7 +99,7 @@ const AccountPage = () => {
                     </Row>
                 </Container>
             </section>
-        </Layouts>
+        </>
     );
 };
 export default AccountPage;

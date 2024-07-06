@@ -36,7 +36,7 @@ const LandingPageHeroUser = () => {
                                     Gimana? Masih bimbang dan bingung?
                                 </h3>
                                 <h2 className="text-white text-center fw-bold">Ini jawabannya!</h2>
-                                <Button className="btn-faq mt-4 fw-bolder rounded-5 w-25 fs-6">
+                                <Button  onClick={() => navigate('/contact')} className="btn-faq mt-4 fw-bolder rounded-5 w-25 fs-6">
                                     FAQ
                                 </Button>
                             </Col>
