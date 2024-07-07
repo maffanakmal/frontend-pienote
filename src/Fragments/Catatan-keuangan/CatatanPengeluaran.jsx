@@ -62,7 +62,7 @@ const CatatanPengeluaran = () => {
 
     const fetchPengeluaran = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/catatankeuangan/pengeluaran', {
+            const response = await axios.get('http://localhost:5081/catatankeuangan/pengeluaran', {
                 withCredentials: true
             });
             

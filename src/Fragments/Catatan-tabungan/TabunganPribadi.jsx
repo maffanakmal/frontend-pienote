@@ -22,7 +22,7 @@ const TabunganPribadi = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/tabunganpribadi', values, { withCredentials: true })
+        axios.post('http://localhost:5081/tabunganpribadi', values, { withCredentials: true })
             .then(res => {
                 if (res.data.error) {
                     setError(res.data.error);

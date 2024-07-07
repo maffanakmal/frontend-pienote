@@ -62,7 +62,7 @@ const CatatanPemasukan = () => {
 
     const fetchPemasukan = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/catatankeuangan/pemasukan', {
+            const response = await axios.get('http://localhost:5081/catatankeuangan/pemasukan', {
                 withCredentials: true
             });
             

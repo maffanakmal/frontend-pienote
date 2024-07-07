@@ -58,7 +58,7 @@ const LaporanKeuangan = () => {
 
     const fetchLaporanKeuangan = async () => {
         try {
-            const response = await axios.post('http://localhost:8000/catatankeuangan/laporan', {
+            const response = await axios.post('http://localhost:5081/catatankeuangan/laporan', {
                 start_date: startDate,
                 end_date: endDate
             }, {

@@ -25,7 +25,7 @@ const RegisterForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/register', values, { withCredentials: true })
+        axios.post('http://localhost:5081/register', values, { withCredentials: true })
             .then(res => {
                 if (res.data.error) {
                     setError(res.data.error);

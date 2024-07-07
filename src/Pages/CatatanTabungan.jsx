@@ -12,7 +12,7 @@ const CatatanTabungan = () => {
 
     useEffect(() => {
         // Fetch personal savings from the backend
-        axios.get('http://localhost:8000/catatantabungan/pribadi', { withCredentials: true })
+        axios.get('http://localhost:5081/catatantabungan/pribadi', { withCredentials: true })
             .then(response => {
                 if (response.data.savings) {
                     setPersonalSavings(response.data.savings);
@@ -23,7 +23,7 @@ const CatatanTabungan = () => {
             });
 
         // Fetch group savings from the backend
-        axios.get('http://localhost:8000/catatantabungan/bersama', { withCredentials: true })
+        axios.get('http://localhost:5081/catatantabungan/bersama', { withCredentials: true })
             .then(response => {
                 if (response.data.savings) {
                     setGroupSavings(response.data.savings);

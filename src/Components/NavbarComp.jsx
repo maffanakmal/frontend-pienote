@@ -1,17 +1,17 @@
-import '../assets/Css/NavBar-Footer.css'
+import '../assets/Css/NavBar-Footer.css';
 import { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, Dropdown } from 'react-bootstrap';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-scroll';
-import navLogo from '../assets/Image/pienotes-logomark-w.png'
-import NewsPage from '../pages/News'
+import navLogo from '../assets/Image/pienotes-logomark-w.png';
+import NewsPage from '../pages/News';
 import LoginModal from './LoginModal';
 
 const NavbarComp = () => {
     const [changeColor, setChangeColor] = useState(false);
     const [show, setShow] = useState(false);
     const location = useLocation();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const changeBackgroundColor = () => {
         if (window.scrollY > 10) {
@@ -33,15 +33,15 @@ const NavbarComp = () => {
     return (
         <Navbar id='navbar' expand="lg" className={changeColor ? "nav-active" : ""}>
             <Container>
-                <Navbar.Brand href="#home" className='fs-3 fw-bold'>
-                    <NavLink to='/'><img src={navLogo} alt="PieNote" width='36px' /></NavLink>
+                <Navbar.Brand className='fs-3 fw-bold'>
+                    <NavLink to="/"><img src={navLogo} alt="PieNote" width='36px' /></NavLink>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mx-auto">
-                            <div className='nav-link'>
-                                {isHomePage ? (
-                                    <Link
+                        <div className='nav-link'>
+                            {isHomePage ? (
+                                <Link
                                     to='home'
                                     spy={true}
                                     smooth={true}
@@ -51,17 +51,14 @@ const NavbarComp = () => {
                                 >
                                     Home
                                 </Link>
-                                ) : (
-                                    <NavLink onClick={() => navigate('/')}>Home</NavLink>
-                                )}
-                                <NavLink
-                                    to='/news'
-                                    component={NewsPage}
-                                >
-                                    News
-                                </NavLink>
-                                {isHomePage ? (
-                                    <Link
+                            ) : (
+                                <NavLink to="/">Home</NavLink>
+                            )}
+                            <NavLink to='/news'>
+                                News
+                            </NavLink>
+                            {isHomePage ? (
+                                <Link
                                     to='about'
                                     spy={true}
                                     smooth={true}
@@ -71,21 +68,21 @@ const NavbarComp = () => {
                                 >
                                     About
                                 </Link>
-                                ) : (
-                                    <NavLink onClick={() => navigate('/')}>About</NavLink>
-                                )}
-                                <NavLink
-                                    onClick={() => setShow(true)}
-                                >
-                                    Contact
-                                </NavLink>
-                            </div>
-                            <LoginModal show={show} setShow={setShow} />
-                    </Nav>
-                        <div className='btn-signin'>
-                            <NavLink className='btn-nav-login' to='/login'>Login</NavLink>
-                            <NavLink className='btn-nav-register' to='/register'>Sign Up <i className="fa-solid fa-angle-right"></i></NavLink>
+                            ) : (
+                                <NavLink to="/">About</NavLink>
+                            )}
+                            <NavLink
+                                onClick={() => setShow(true)}
+                            >
+                                Contact
+                            </NavLink>
                         </div>
+                        <LoginModal show={show} setShow={setShow} />
+                    </Nav>
+                    <div className='btn-signin'>
+                        <NavLink className='btn-nav-login' to='/login'>Login</NavLink>
+                        <NavLink className='btn-nav-register' to='/register'>Sign Up <i className="fa-solid fa-angle-right"></i></NavLink>
+                    </div>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

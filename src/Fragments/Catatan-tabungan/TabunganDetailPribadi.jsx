@@ -30,7 +30,7 @@ const TabunganDetailPribadi = () => {
     useEffect(() => {
         console.log("Fetching data for personalsaving_id:", personalsaving_id);
 
-        axios.get(`http://localhost:8000/detailtabunganpribadi/${personalsaving_id}`, { withCredentials: true })
+        axios.get(`http://localhost:5081/detailtabunganpribadi/${personalsaving_id}`, { withCredentials: true })
             .then(res => {
                 const { saving_name, description, target, place_saving, dateline, notification, wishlist } = res.data;
                 setValues({
@@ -49,7 +49,7 @@ const TabunganDetailPribadi = () => {
                 setShow(true);
             });
 
-        axios.get(`http://localhost:8000/detailtabunganpribadi/${personalsaving_id}/currentsavings`, { withCredentials: true })
+        axios.get(`http://localhost:5081/detailtabunganpribadi/${personalsaving_id}/currentsavings`, { withCredentials: true })
             .then(res => {
                 const sortedData = res.data.current_savings.sort((a, b) => new Date(b.date) - new Date(a.date));
                 setCurrentSavings(sortedData);
@@ -65,7 +65,7 @@ const TabunganDetailPribadi = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`http://localhost:8000/detailtabunganpribadi/${personalsaving_id}`, values, { withCredentials: true })
+        axios.post(`http://localhost:5081/detailtabunganpribadi/${personalsaving_id}`, values, { withCredentials: true })
             .then(res => {
                 if (res.data.error) {
                     setError(res.data.error);
@@ -90,7 +90,7 @@ const TabunganDetailPribadi = () => {
 
     const handleAddCurrentSaving = (e) => {
         e.preventDefault();
-        axios.post(`http://localhost:8000/detailtabunganpribadi/${personalsaving_id}/currentsavings`, newSaving, { withCredentials: true })
+        axios.post(`http://localhost:5081/detailtabunganpribadi/${personalsaving_id}/currentsavings`, newSaving, { withCredentials: true })
             .then(res => {
                 if (res.data.error) {
                     setError(res.data.error);
@@ -116,7 +116,7 @@ const TabunganDetailPribadi = () => {
 
     const handleDelete = () => {
         if (window.confirm(`Apakah Anda yakin ingin menghapus tabungan '${values.saving_name}'?`)) {
-            axios.delete(`http://localhost:8000/detailtabunganpribadi/${personalsaving_id}`, { withCredentials: true })
+            axios.delete(`http://localhost:5081/detailtabunganpribadi/${personalsaving_id}`, { withCredentials: true })
                 .then(res => {
                     if (res.data.message) {
                         setSuccess('Personal saving has been deleted!');

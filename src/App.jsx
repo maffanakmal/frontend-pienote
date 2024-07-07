@@ -1,6 +1,6 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-// import NotFound from './pages/NotFoundc';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import NotFound from './pages/NotFound'; // Correct the import statement
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
@@ -14,8 +14,8 @@ import UserNews from './pages/UserNews';
 import Article from './pages/Article';
 import ForgetPassword from './pages/ForgetPassword';
 import SplitBill from './pages/SplitBill';
-import ProtectedRoute from './middleware/ProtectedRoute';
-import PublicRoute from './middleware/PublicRoute';
+import ProtectedRoute from './protect-route/authenticatedRoute';
+import PublicRoute from './protect-route/publicRoute';
 import CatatanTabungan from './pages/CatatanTabungan';
 import TabunganPribadi from './Fragments/Catatan-tabungan/TabunganPribadi';
 import TabunganBersama from './Fragments/Catatan-tabungan/TabunganBersama';
@@ -28,157 +28,49 @@ import PasswordAccount from './Fragments/Account/AccountPage';
 import PasswordTabungan from './Fragments/Account/PasswordTabungan';
 import PasswordKeuangan from './Fragments/Account/PasswordKeuangan';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: (
-        <Home />
-    ),
-    // errorElement: <NotFound />,
-  },
-  {
-    path: '/news',
-    element: (
-        <News />
-    ),
-  },
-  {
-    path: '/login',
-    element: (
-        <Login />
-    ),
-  },
-  {
-    path: '/forgetpassword/:section',
-    element: (
-        <ForgetPassword />
-    ),
-  },
-  {
-    path: '/register',
-    element: (
-        <Register />
-    ),
-  },
-  {
-    path: '/home',
-    element: (
-        <UserHome />
-    ),
-  },
-  {
-    path: '/article',
-    element: (
-        <UserNews />
-    ),
-  },
-  {
-    path: '/contact',
-    element: (
-        <ContactUs />
-    ),
-  },
-  {
-    path: '/article/:section',
-    element: (
-        <Article />
-    ),
-  },
-  {
-    path: '/catatantabungan',
-    element: (
-        <CatatanTabungan />
-    ),
-  },
-  {
-    path: '/tabunganpribadi',
-    element: (
-        <TabunganPribadi />
-    ),
-  },
-  {
-    path: '/tabunganbersama',
-    element: (
-        <TabunganBersama />
-    ),
-  },
-  {
-    path: '/catatankeuangan/:section',
-    element: (
-        <CatatanKeuangan />
-    ),
-  },
-  {
-    path: '/berbagitagihan',
-    element: (
-        <SplitBill />
-    ),
-  },
-  {
-    path: '/rating',
-    element: (
-        <Rating />
-    ),
-  },
-  {
-    path: '/detailtabunganpribadi/:personalsaving_id',
-    element: (
-        <DetailTabuganPribadi/>
-    ),
-  },
-  {
-    path: '/detailtabunganbersama/:groupsavings_id',
-    element: (
-        <DetailTabuganBersama/>
-    ),
-  },
-  {
-    path: '/profile',
-    element: (
-        <Profile />
-    ),
-  },
-  {
-    path: '/profilesetting',
-    element: (
-        <ProfileSetting />
-    ),
-  },
-  {
-    path: '/accountsetting',
-    element: (
-        <AccountSetting />
-    ),
-  },
-  {
-    path: '/settingmatauang',
-    element: (
-        <SettingsMataUang />
-    ),
-  },
-  {
-    path: '/passwordaccount',
-    element: (
-        <PasswordAccount />
-    ),
-  },
-  {
-    path: '/passwordtabungan',
-    element: (
-        <PasswordTabungan />
-    ),
-  },
-  {
-    path: '/passwordkeuangan',
-    element: (
-        <PasswordKeuangan />
-    ),
-  },
-]);
-
 function App() {
   return (
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/login"
+          element={
+              <Login />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+              <Register />
+          }
+        />
+        <Route path="/" element={<Home />} />
+        <Route path="/forgetpassword/:section" element={<ForgetPassword />} />
+        <Route path="/news" element={<News />} />
+
+        <Route path="/home" element={<UserHome />} />
+        <Route path="/article" element={<UserNews />} />
+        <Route path="/article/:section" element={<Article />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/catatantabungan" element={<CatatanTabungan />} />
+        <Route path="/tabunganpribadi" element={<TabunganPribadi />} />
+        <Route path="/tabunganbersama" element={<TabunganBersama />} />
+        <Route path="/catatankeuangan/:section" element={<CatatanKeuangan />} />
+        <Route path="/berbagitagihan" element={<SplitBill />} />
+        <Route path="/rating" element={<Rating />} />
+        <Route path="/detailtabunganpribadi/:personalsaving_id" element={<DetailTabuganPribadi />} />
+        <Route path="/detailtabunganbersama/:groupsavings_id" element={<DetailTabuganBersama />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profilesetting" element={<ProfileSetting />} />
+        <Route path="/accountsetting" element={<AccountSetting />} />
+        <Route path="/settingmatauang" element={<SettingsMataUang />} />
+        <Route path="/passwordaccount" element={<PasswordAccount />} />
+        <Route path="/passwordtabungan" element={<PasswordTabungan />} />
+        <Route path="/passwordkeuangan" element={<PasswordKeuangan />} />
+
+        <Route path="*" element={<NotFound />} /> {/* Correct the route for NotFound */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -40,7 +40,7 @@ const TabunganBersama = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/tabunganbersama', values, { withCredentials: true })
+        axios.post('http://localhost:5081/tabunganbersama', values, { withCredentials: true })
             .then(res => {
                 if (res.data.error) {
                     setError(res.data.error);

@@ -11,7 +11,7 @@ const Profile = () => {
 
     const fetchProfile = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/profile", {
+            const response = await axios.get("http://localhost:5081/profile", {
                 withCredentials: true,
             });
             setData(response.data.user);
