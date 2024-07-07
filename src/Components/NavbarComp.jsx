@@ -1,5 +1,5 @@
 import '../assets/Css/NavBar-Footer.css';
-import { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 import { Navbar, Container, Nav, Dropdown } from 'react-bootstrap';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-scroll';
